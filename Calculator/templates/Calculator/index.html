@@ -1,0 +1,267 @@
+{% extends 'Calculator/base.html' %}
+
+{% block body %}
+
+{% load getattribute %}
+
+<div class="container-fluid">
+
+<div class="row">
+<div class="well hero row-fluid summary-box container">
+
+
+		<div class="col-md-7">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form  role="form" action="{% url 'Calculator:index' client %}" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<fieldset>
+							{% for i, j, k, l in variable_list %}
+								{% if forloop.counter0 == 0 or forloop.counter0 == 3 or forloop.counter0 == 5 or forloop.counter0 == 8 or forloop.counter0 == 11 or forloop.counter0 == 14 or forloop.counter0 == 17 or forloop.counter0 == 20 or forloop.counter0 == 23 or forloop.counter0 == 29 %}
+									<lengend><h4>{{l}}</h4></lengend>
+								{% endif%}
+
+							    <div class="form-group" >
+									<div class="input-group">
+
+										{% if forloop.counter0 == 4 or forloop.counter0 == 18 or forloop.counter0 == 19 %}
+							      			<div class="input-group-addon">{{j}}: </div>
+								   		{% else %}
+							      			<div class="input-group-addon">{{j}}: $</div>
+							      		{% endif %}
+
+							      		{% if forloop.counter0 == 0 or forloop.counter0 == 1 or forloop.counter0 == 2 %}
+											<input name={{i}} id={{i}} type="number" step="0.01" min="0" max="100000000" value="{{variables|getattribute:i}}" class="form-control" placeholder="{{k}}" readonly></br>
+										{% else %}
+											<input name={{i}} id={{i}} type="number" step="0.01" min="0" max="100000000" value="{{variables|getattribute:i}}" class="form-control" placeholder="{{k}}"></br>
+										{% endif %}
+							
+										{% if forloop.counter0 == 4 %}
+											<div class="input-group-addon">Year (s)&nbsp;</div>
+										{% elif forloop.counter0 == 18 %}
+							      			<div class="input-group-addon">Mbps &nbsp; &nbsp;</div>
+							      		{% elif forloop.counter0 == 19 %}
+							      			<div class="input-group-addon">GB &nbsp; &nbsp; &nbsp; &nbsp;</div>
+							      		{% else %}
+											<div class="input-group-addon">Dollar(s)</div>
+							      		{% endif %}
+
+									</div>
+								</div>
+							{% endfor %}
+
+						<div class="form-group">
+							<div class="col-sm-offset-4 col-sm-10">
+								<button type="submit" class="btn btn-primary"> Save and Calculate </button>
+									<br><br>
+									<!--
+								<a href="{% url 'Calculator:chart' %}" type="button" class="btn btn-primary"> Go to Charts </a> 
+									<br><br>
+									
+								<a href="{% url 'Calculator:logout' %}" type="button" class="btn btn-danger"> logout </a>
+							</div>
+						</div>
+-->
+
+						</fieldset>
+					</form>
+				</div>
+				</div>
+			</div>
+		
+	
+
+	<div class="col-md-5">
+			<div class="panel panel-default">
+				<div class="panel-body">
+
+
+					<form  role="form" action="" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<fieldset>
+
+							    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+							    <script type="text/javascript">
+							    	google.charts.load('current', {'packages':['corechart']});
+							    	google.charts.setOnLoadCallback(drawChart);
+							    	function drawChart() {
+							        	var data = google.visualization.arrayToDataTable([
+								          	['Task', 'Dollars'],
+								          	['house', {{house}}],
+								          	['car', {{car}}],
+								          	['phone', {{phone}}],
+								          	['cable', {{cable}}],
+								          	['subscriptions', {{subscriptions}}],
+								          	['loan', {{loan}}],
+								          	['expenses', {{expenses}}],
+								        	]);
+
+								        var pie_options = {
+								          	title: 'Monthly Expenses Pie Chart'
+								        };
+
+							        	var pie_chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+							        	pie_chart.draw(data, pie_options);
+							    }
+							    </script>
+
+
+							    <div id="piechart" style="height:350px; "></div>
+
+						</fieldset>
+						</form>
+		</div>
+	</div>
+</div>
+
+
+	<div class="col-md-5">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form  role="form" action="" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<fieldset>
+							    
+
+
+		  						<script type="text/javascript">
+								    google.charts.load("current", {packages:['corechart']});
+								    google.charts.setOnLoadCallback(drawChart);
+								    function drawChart() {
+								      var data = google.visualization.arrayToDataTable([
+								        ["Expenses", "$", { role: "style" } ],
+								        ["house", {{house}}, "blue"],
+								        ["car", {{car}}, "red"],
+								        ["phone", {{phone}}, "orange"],
+								        ["cable", {{cable}}, "green"],
+						     	        ["subscriptions", {{subscriptions}}, "gold"],
+								        ["loan", {{loan}}, "brown"],
+								        ["expenses", {{expenses}}, "purple"]
+								      ]);
+
+								      var view = new google.visualization.DataView(data);
+								      view.setColumns([0, 1,
+								                       { calc: "stringify",
+								                         sourceColumn: 1,
+								                         type: "string",
+								                         role: "annotation" },
+								                       2]);
+
+								      var options = {
+								        title: "Monthly Expenses Column Chart",
+								        bar: {groupWidth: "95%"},
+								        legend: { position: "none" },
+								      };
+								      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+								      chart.draw(view, options);
+								  }
+	 						    </script>
+								<div id="columnchart_values" style="height:350px;" ></div>
+
+						</fieldset>
+						</form>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-5">
+			<div class="panel panel-default">
+				<div class="panel-body">
+
+								<script>
+								      google.charts.load('current', {'packages':['corechart']});
+								      google.charts.setOnLoadCallback(drawChart);
+
+								      function drawChart() {
+								        var data = google.visualization.arrayToDataTable([
+								          ['Month', 'Savings'],
+								          ['1',  {{savings}} ],
+								          ['2',  {{savings}}*2 ],
+								          ['3',  {{savings}}*3 ],
+								          ['4',  {{savings}}*4 ], 
+								          ['5',  {{savings}}*5 ], 
+								          ['6',  {{savings}}*6 ], 
+								          ['7',  {{savings}}*7 ], 
+								          ['8',  {{savings}}*8 ], 
+								          ['9',  {{savings}}*9 ], 
+								          ['10', {{savings}}*10], 
+								          ['11', {{savings}}*11], 
+								          ['12', {{savings}}*12], 
+								        ]);
+
+								        var options = {
+								          title: 'Yearly Savings Increment Line Chart I',
+								          curveType: 'function',
+								          legend: { position: 'bottom' }
+								        };
+
+								        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_I'));
+
+								        chart.draw(data, options);
+								      }
+								</script>
+ 								<div id="curve_chart_I" style="height:350px;"></div>
+
+
+
+				</fieldset>
+						</form>
+		</div>
+	</div>
+</div>
+
+	<div class="col-md-5">
+			<div class="panel panel-default">
+				<div class="panel-body">
+ 								<script>
+								      google.charts.load('current', {'packages':['corechart']});
+								      google.charts.setOnLoadCallback(drawChart);
+
+								      function drawChart() {
+								        var data = google.visualization.arrayToDataTable([
+								          ['Savings', 'Month'],
+								          ['{{savings}}', 1], 
+								          [{{savings}}*2, 2], 
+								          [{{savings}}*3, 3], 
+								          [{{savings}}*4, 4], 
+								          [{{savings}}*5, 5], 
+								          [{{savings}}*6, 6], 
+								          [{{savings}}*7, 7], 
+								          [{{savings}}*8, 8], 
+								          [{{savings}}*9, 9], 
+								          [{{savings}}*10, 10], 
+								          [{{savings}}*11, 11], 
+								          [{{savings}}*12, 12], 
+								        ]);
+
+								        var options = {
+								          title: 'Yearly Savings Increment Line Chart II',
+								          curveType: 'function',
+								          legend: { position: 'bottom' }
+								        };
+
+								        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_II'));
+
+								        chart.draw(data, options);
+								      }
+								</script>
+ 								<div id="curve_chart_II" style="height:350px;"></div>
+
+ 								</fieldset>
+					</form>
+
+</div>
+
+</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
+

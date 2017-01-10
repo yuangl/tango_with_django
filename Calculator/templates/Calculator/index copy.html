@@ -1,0 +1,362 @@
+
+
+
+
+
+
+	<div class="form-group" >
+		<label class="control-label" for="years_to_achieve">Years to Achieve:</label>
+		<div class="input-group">
+      		<div class="input-group-addon">Y</div>
+			<input name="years_to_achieve" id="years_to_achieve" type="number" step="0.01" min="0" max="100000000" value="{{variables.years_to_achieve}}" class="form-control margin-right" placeholder="Years to achieve: "></br>
+		</div>
+	</div>
+
+
+
+
+<!--Table 1-->
+
+<fieldset width=100>
+<legend>Income</legend>
+
+	<label for="">Job/Work: $</label>
+	<input name="personal_income" type="number" step="0.01" min="0" max="100000000" value="{{variables.personal_income}}"></br>
+
+	<label for="">Family/Friends: $</label>
+	<input name="family_income" type="number" step="0.01" min="0" max="100000000" value="{{variables.family_income}}"></br>
+
+	<label for="">Other Income: $</label>
+	<input name="other_income" type="number" step="0.01" min="0" max="100000000" value="{{variables.other_income}}"></br>
+
+</fieldset>
+
+
+<!--Table 2-->
+
+<fieldset>
+<legend>Rent/Mortgage</legend>
+
+	<label for="">Payments Per Month: $</label>
+	<input name="house_rent" type="number" step="0.01" min="0" max="100000000" value="{{variables.house_rent}}"></br>
+
+	<label for="">Water/Gas/Electricity: $</label>
+	<input name="house_utility" type="number" step="0.01" min="0" max="100000000" value="{{variables.house_utility}}"></br>
+
+	<label for="">Misco Expensive (Insurances/Security Programs/Lawn upkeep) etc: $</label>
+	<input name="house_misc" type="number" step="0.01" min="0" max="100000000" value="{{variables.house_misc}}"></br>
+
+</fieldset>
+
+
+<!--Table 3-->
+<fieldset>
+<legend>Car</legend>
+
+	<label for="">Payment Per Month: $</label>
+	<input name="car_rent" type="number" step="0.01" min="0" max="100000000" value="{{variables.car_rent}}"></br>
+
+	<label for="">Average Miles Per Week: $</label>
+	<input name="car_miles" type="number" step="0.01" min="0" max="100000000" value="{{variables.car_miles}}"></br>
+
+	<label for="">Car Insurance: $</label>
+	<input name="car_insurance" type="number" step="0.01" min="0" max="100000000" value="{{variables.car_insurance}}"></br>
+
+</fieldset>
+
+<!--Table 4-->
+<fieldset>
+<legend>Phone</legend>
+
+	<label for="">Payment Per Month: $</label>
+	<input name="phone_rent" type="number" step="0.01" min="0" max="100000000" value="{{variables.phone_rent}}"></br>
+
+	<label for="title">Gigs Used Per Month: $</label>
+	<input name="phone_usage" type="number" step="0.01" min="0" max="100000000" value="{{variables.phone_usage}}"></br>
+
+	<label for="title">Protection Plan: $</label>
+	<input name="phone_insurance" type="number" step="0.01" min="0" max="100000000" value="{{variables.phone_insurance}}"></br>
+
+</fieldset>
+
+
+<!--Table 5-->
+
+<fieldset>
+<legend>Cable/Internet</legend>
+
+	<label for="">Payment Per Month: $</label>
+	<input name="cable_rent" type="number" step="0.01" min="0" max="100000000" value="{{variables.cable_rent}}"></br>
+
+	<label for="">Speed Provided: </label>
+	<input name="cable_speed" type="number" step="0.01" min="0" max="100000000" value="{{variables.cable_speed}}"></br>
+
+	<label for="">Space/Size Data/Package: </label>
+	<input name="cable_space" type="number" step="0.01" min="0" max="100000000" value="{{variables.cable_space}}"></br>
+
+</fieldset>
+
+
+
+<!--Table 6-->
+
+<fieldset>
+<legend>Subscriptions</legend>
+
+	<label for="">Phone Subscriptions: $</label>
+	<input name="phone_subscriptions" type="number" step="0.01" min="0" max="100000000" value="{{variables.phone_subscriptions}}"></br>
+
+	<label for="">Computer Subscripions: $</label>
+	<input name="computer_subscriptions" type="number" step="0.01" min="0" max="100000000" value="{{variables.computer_subscriptions}}"></br>
+
+	<label for="">Other Subscriptions: $</label>
+	<input name="other_subscriptions" type="number" step="0.01" min="0" max="100000000" value="{{variables.other_subscriptions}}"></br>
+
+</fieldset>
+
+
+<!--Table 7-->
+
+<fieldset>
+<legend>Debts</legend>
+
+	<label for="">Medical Debt: $</label>
+	<input name="medical_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.medical_loan}}"></br>
+
+	<label for="">Car Loan: $</label>
+	<input name="car_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.car_loan}}"></br>
+
+	<label for="">College Loans: $</label>
+	<input name="college_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.college_loan}}"></br>
+
+	<label for="">Mortgage: $</label>
+	<input name="house_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.house_loan}}"></br>
+
+	<label for="">Credit Card Debit: $</label>
+	<input name="credit_card_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.credit_card_loan}}"></br>
+
+	<label for="">Misc Loans/Debts: $</label>
+	<input name="misc_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.misc_loan}}"></br>
+
+</fieldset>
+
+
+<!--Table 8-->
+
+<fieldset>
+<legend>Vital Expenses</legend>
+
+	<label for="">Family Expenses: $</label>
+	<input name="family_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.family_expenses}}"></br>
+
+	<label for="">Medical Expenses: $</label>
+	<input name="medical_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.medical_expenses}}"></br>
+
+	<label for="">Dental Expenses: $</label>
+	<input name="dental_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.dental_expenses}}"></br>
+
+	<label for="">College Expenses: $</label>
+	<input name="college_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.college_expenses}}"></br>
+
+	<label for="">Groceries/Food/Water: $</label>
+	<input name="grocery_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.grocery_expenses}}"></br>
+
+	<label for="">Clothes/Accessories: $</label>
+	<input name="cloth_expesnses" type="number" step="0.01" min="0" max="100000000" value="{{variables.cloth_expesnses}}"></br>
+
+	<label for="">Life Insurance Expenses: $</label>
+	<input name="life_insurance_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.life_insurance_expenses}}"></br>
+
+	<label for="">Misc. Expenses: $</label>
+	<input name="misc_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.misc_expenses}}"></br>
+
+</fieldset>
+
+{% load getattr %}
+
+
+<!--Table 0-->
+<form class="form-horizontal" role="form" action="{% url 'Calculator:index' %}" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<fieldset>
+<legend>Income</legend>
+
+	{% for i in variable_list %}
+	<label for="">Job/Work: $</label>
+	<input name="{{i}}" type="number" step="0.01" min="0" max="100000000" value="{{ variables.house_rent }}"></br>
+	{% endfor %}
+
+</fieldset>
+</form>
+
+<!--Table 1-->
+
+
+
+
+<!--Table 2-->
+
+<fieldset>
+<legend>Rent/Mortgage</legend>
+
+	<label for="">Payments Per Month: $</label>
+	<input name="house_rent" type="number" step="0.01" min="0" max="100000000" value="{{variables.house_rent}}"></br>
+
+	<label for="">Water/Gas/Electricity: $</label>
+	<input name="house_utility" type="number" step="0.01" min="0" max="100000000" value="{{variables.house_utility}}"></br>
+
+	<label for="">Misco Expensive (Insurances/Security Programs/Lawn upkeep) etc: $</label>
+	<input name="house_misc" type="number" step="0.01" min="0" max="100000000" value="{{variables.house_misc}}"></br>
+
+</fieldset>
+
+
+<!--Table 3-->
+<fieldset>
+<legend>Car</legend>
+
+	<label for="">Payment Per Month: $</label>
+	<input name="car_rent" type="number" step="0.01" min="0" max="100000000" value="{{variables.car_rent}}"></br>
+
+	<label for="">Average Miles Per Week: $</label>
+	<input name="car_miles" type="number" step="0.01" min="0" max="100000000" value="{{variables.car_miles}}"></br>
+
+	<label for="">Car Insurance: $</label>
+	<input name="car_insurance" type="number" step="0.01" min="0" max="100000000" value="{{variables.car_insurance}}"></br>
+
+</fieldset>
+
+<!--Table 4-->
+<fieldset>
+<legend>Phone</legend>
+
+	<label for="">Payment Per Month: $</label>
+	<input name="phone_rent" type="number" step="0.01" min="0" max="100000000" value="{{variables.phone_rent}}"></br>
+
+	<label for="title">Gigs Used Per Month: $</label>
+	<input name="phone_usage" type="number" step="0.01" min="0" max="100000000" value="{{variables.phone_usage}}"></br>
+
+	<label for="title">Protection Plan: $</label>
+	<input name="phone_insurance" type="number" step="0.01" min="0" max="100000000" value="{{variables.phone_insurance}}"></br>
+
+</fieldset>
+
+
+<!--Table 5-->
+
+<fieldset>
+<legend>Cable/Internet</legend>
+
+	<label for="">Payment Per Month: $</label>
+	<input name="cable_rent" type="number" step="0.01" min="0" max="100000000" value="{{variables.cable_rent}}"></br>
+
+	<label for="">Speed Provided: </label>
+	<input name="cable_speed" type="number" step="0.01" min="0" max="100000000" value="{{variables.cable_speed}}"></br>
+
+	<label for="">Space/Size Data/Package: </label>
+	<input name="cable_space" type="number" step="0.01" min="0" max="100000000" value="{{variables.cable_space}}"></br>
+
+</fieldset>
+
+
+
+<!--Table 6-->
+
+<fieldset>
+<legend>Subscriptions</legend>
+
+	<label for="">Phone Subscriptions: $</label>
+	<input name="phone_subscriptions" type="number" step="0.01" min="0" max="100000000" value="{{variables.phone_subscriptions}}"></br>
+
+	<label for="">Computer Subscripions: $</label>
+	<input name="computer_subscriptions" type="number" step="0.01" min="0" max="100000000" value="{{variables.computer_subscriptions}}"></br>
+
+	<label for="">Other Subscriptions: $</label>
+	<input name="other_subscriptions" type="number" step="0.01" min="0" max="100000000" value="{{variables.other_subscriptions}}"></br>
+
+</fieldset>
+
+
+<!--Table 7-->
+
+<fieldset>
+<legend>Debts</legend>
+
+	<label for="">Medical Debt: $</label>
+	<input name="medical_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.medical_loan}}"></br>
+
+	<label for="">Car Loan: $</label>
+	<input name="car_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.car_loan}}"></br>
+
+	<label for="">College Loans: $</label>
+	<input name="college_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.college_loan}}"></br>
+
+	<label for="">Mortgage: $</label>
+	<input name="house_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.house_loan}}"></br>
+
+	<label for="">Credit Card Debit: $</label>
+	<input name="credit_card_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.credit_card_loan}}"></br>
+
+	<label for="">Misc Loans/Debts: $</label>
+	<input name="misc_loan" type="number" step="0.01" min="0" max="100000000" value="{{variables.misc_loan}}"></br>
+
+</fieldset>
+
+
+<!--Table 8-->
+
+<fieldset>
+<legend>Vital Expenses</legend>
+
+	<label for="">Family Expenses: $</label>
+	<input name="family_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.family_expenses}}"></br>
+
+	<label for="">Medical Expenses: $</label>
+	<input name="medical_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.medical_expenses}}"></br>
+
+	<label for="">Dental Expenses: $</label>
+	<input name="dental_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.dental_expenses}}"></br>
+
+	<label for="">College Expenses: $</label>
+	<input name="college_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.college_expenses}}"></br>
+
+	<label for="">Groceries/Food/Water: $</label>
+	<input name="grocery_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.grocery_expenses}}"></br>
+
+	<label for="">Clothes/Accessories: $</label>
+	<input name="cloth_expesnses" type="number" step="0.01" min="0" max="100000000" value="{{variables.cloth_expesnses}}"></br>
+
+	<label for="">Life Insurance Expenses: $</label>
+	<input name="life_insurance_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.life_insurance_expenses}}"></br>
+
+	<label for="">Misc. Expenses: $</label>
+	<input name="misc_expenses" type="number" step="0.01" min="0" max="100000000" value="{{variables.misc_expenses}}"></br>
+
+</fieldset>
+
+<fieldset>
+<legend>Goal</legend>
+
+	<label class="control-label col-sm-2" for="">Goal Income: $</label>
+	<input name="goal_income" type="number" step="0.01" min="0" max="100000000" value="{{variables.goal_income}}"></br>
+
+	<label class="control-label col-sm-2" for="">Years to Achieve: </label>
+	<input name="years_to_achieve" type="number" step="0.01" min="0" max="100000000" value="{{variables.years_to_achieve}}"></br>
+
+	<label class="control-label col-sm-2" for="">Output : </label>
+	<input name="years_to_achieve" type="number" step="0.01" min="0" max="100000000" value="{{variables.years_to_achieve}}"></br>
+
+</fieldset>
+
+<button type="submit" class="btn btn-success"> Submit </button>
+
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+

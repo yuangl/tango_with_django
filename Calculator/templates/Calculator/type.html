@@ -1,0 +1,47 @@
+{% extends 'Calculator/base.html' %}
+
+{% block body %}
+
+{% load getattribute %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="well hero row-fluid summary-box container">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form  role="form" action="{% url 'Calculator:type' %}" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<fieldset>
+							<lengend>Type</lengend>
+
+							<div class="btn-group" data-toggle="buttons">
+								<label class="btn btn-primary active">
+    								<input type="radio" name="options" id="option1" autocomplete="off" value="0" checked> Client 1
+  								</label><br>
+  								<label class="btn btn-primary">
+   									<input type="radio" name="options" id="option2" autocomplete="off" value="1"> Client 2
+  								</label><br>
+  								<label class="btn btn-primary">
+  								 	<input type="radio" name="options" id="option3" autocomplete="off" value="2"> Client 3
+  								</label><br>
+							</div><br>
+
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-success"> Choose </button>
+							</div>
+						</div>
+
+						</fieldset>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,149 @@
+{% extends 'Calculator/base.html' %}
+
+{% block body %}
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="well hero row-fluid summary-box container">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form  role="form" action="{% url 'Calculator:accept' %}" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<fieldset>
+							<h1> USER AGREEMENT </h1>
+							<p>This USER AGREEMENT ("AGREEMENT") covers Fyinance, Inc. (“Fyinance”). This entity may be referred to as "we," "us," and "our" throughout this Policy.</p>
+Introduction
+Thanks for choosing Fyinance. By signing up or otherwise using the Fyinance service, websites, and software applications (together, the “Fyinance Service,” “Online Service,” or “Service”), or accessing any content or material that is made available by Fyinance through the Service (the “Content”) you are entering into a binding contract with Fyinance Inc.
+The Fyinance Service includes social and interactive features. Use of the Fyinance Service relies on several technical requirements.
+Your agreement with us includes these Terms and Conditions of Use (“Terms”) and our Privacy Policy. (The Terms, Privacy Policy, and any additional terms that you agree to, as discussed in the Entire Agreement section, are referred to together as the “Agreements”.) If you wish to review the terms of the Agreements, the effective version of the Agreements can be found on Fyinance’s website. You acknowledge that you have read and understood the Agreements, accept these Agreements, and agree to be bound by them. If you don’t agree with (or cannot comply with) the Agreements, then you may not use the Fyinance Service.
+Please read the Agreements carefully. They cover important information about Fyinance Services provided to you and any charges, taxes, and fees we bill you. The Agreements include information about future changes to the Agreements, automatic renewals, limitations of liability, privacy information, and resolution of disputes by arbitration instead of in court.
+Any information that you provided during sign-up can be corrected during the sign-up process by returning to the previous screens and correcting erroneous information.
+In order to use the Fyinance Service and access the Content, you need to (1) be 18 or older, (2) have the power to enter a binding contract with us and not be barred from doing so under any applicable laws, and (3) be resident in a country where the Service is available. You also promise that any registration information that you submit to Fyinance is true, accurate, and complete, and you agree to keep it that way at all times.
+
+Changes to the Agreements
+Occasionally we may, in our discretion, make changes to the Agreements. When we make material changes to the Agreements, we’ll provide you with prominent notice as appropriate under the circumstances, e.g., by displaying a prominent notice within the Service or by sending you an email. In some cases, we will notify you in advance, and your continued use of the Service after the changes have been made will constitute your acceptance of the changes. Please therefore make sure you read any such notice carefully. If you do not wish to continue using the Service under the new version of the Agreements, you may terminate the Agreements by contacting us through the Customer Service contact form.
+Terms of Use
+Please respect Fyinance, its representatives, and other users of the Fyinance Service. Don’t engage in any activity, post any User Content, or register and/or use a username, which is or includes material that:
+ is offensive, abusive, defamatory, pornographic, threatening, or obscene;
+ is illegal, or intended to promote or commit an illegal act of any kind, including but not limited to violations of intellectual property rights, privacy rights, or proprietary rights of Fyinance or a third party;
+ includes your password or purposely includes any other user’s password or purposely includes personal data of third parties or is intended to solicit such personal data;
+ includes malicious content such as malware, Trojan horses, or viruses, or otherwise interferes with any user’s access to the Service;
+ is intended to or does harass or bully other users;
+ impersonates or misrepresents your affiliation with another user, person, or entity, or is
+otherwise fraudulent, false, deceptive, or misleading;
+ uses automated means to artificially promote content;
+ involves the transmission of unsolicited mass mailings or other forms of spam (“spam”), junk mail, chain letters, or similar, including through the Fyinance inbox;
+ involves commercial or sales activities, such as advertising, promotions, contests, sweepstakes, or pyramid schemes, that are not expressly authorized by Fyinance;
+ links to, references, or otherwise promotes commercial products or services, except as
+expressly authorized by Fyinance;
+ interferes with or in any way disrupts the Fyinance Service, tampers with, breaches, or attempts to probe, scan, or test for vulnerabilities in the Service or Fyinance’s computer systems, network, usage rules, or any of Fyinance’s security components, authentication measures or any other protection measures applicable to the Service, the Content or any part thereof; or
+ conflicts with the Agreements, as determined by Fyinance.
+You acknowledge and agree that posting any such content may result in immediate termination or suspension of your Fyinance account. You also agree that Fyinance may also reclaim your username for any reason.
+Please be thoughtful about how you use the Fyinance Service and what you share. Remember that shared or publicly available information may be used and re-shared by other users on Fyinance or across the web, so please use Fyinance carefully and be mindful of your account settings. Fyinance has no responsibility for your choices to post material on the Service.
+Your password protects your user account, and you are solely responsible for keeping your password confidential and secure. You understand that you are responsible for all use of your username and password on the Service. If your username or password is lost or stolen, or if you believe there has been unauthorized access to your account by third parties, please notify us immediately and change your password as soon as possible.
+Payments and cancellations
+Paid Subscriptions can be purchased either by (1) paying a monthly subscription fee; or (2) pre-payment giving you access to the Fyinance Service for a specific time period (“Pre-Paid Period”).
+Unless your Paid Subscription has been purchased as a Pre-Paid Period, your payment to Fyinance (or to a third party through whom you purchased the Paid Subscription) will automatically renew at the end of the subscription period, unless you cancel your Paid Subscription through your subscription page before the end of the current subscription period. The cancellation will take effect the day after the last day of the current subscription period. However, if you cancel your payment or Paid Subscription and/or terminate any of the Agreements before the end of the current subscription period, we will not refund any subscription fees already paid to us.
+
+Fyinance may change the price for the Paid Subscriptions, Pre-Paid Period (for periods
+not yet paid for) from time to time, and will communicate any price changes to you in advance and, if applicable, how to accept those changes. Price changes for Paid Subscriptions will take effect at the start of the next subscription period following the date of the price change. As permitted by local law, you accept the new price by continuing to use the Fyinance Service after the price change takes effect. If you do not agree with the price changes, you have the right to reject the change by unsubscribing from the Fyinance Service prior to the price change going into effect. Please therefore make sure you read any such notification of price changes carefully.
+Customer support
+For customer support with account-related and payment-related questions (“Customer Support Queries”), please submit a ticket to our customer service department using the Customer Service contact form on the About Us section of our website. We will use reasonable attempts to respond to all Customer Support Queries within a reasonable time frame but we make no guarantees or warranties of any kind that any Customer Support Queries will be responded to within any particular time frame and/or that we will be able to satisfactorily answer any such queries.
+Service limitations and modifications
+Fyinance will make reasonable efforts to keep the Fyinance Service operational. However, certain technical difficulties or maintenance may, from time to time, result in temporary interruptions. To the extent permissible under applicable law, Fyinance reserves the right, periodically and at any time, to modify or discontinue, temporarily or permanently, functions and features of the Fyinance Service, with or without notice, all without liability to you, except where prohibited by law, for any interruption, modification, or discontinuation of the Fyinance Service or any function or feature thereof. Notwithstanding the foregoing, if you have prepaid fees for Paid Subscriptions that Fyinance permanently discontinues prior to the end of the Pre-Paid Period (defined in the Payments amd cancellations section), Fyinance will refund you the prepaid fees for the Pre-Paid Period after such discontinuation. You understand, agree, and accept that Fyinance has no obligation to maintain, support, upgrade, or update the Service, or to provide all or any specific content through the Service. This section will be enforced to the extent permissible by applicable law. Fyinance and/or the owners of any Content may, from time to time, remove any such Content without notice to the extent permitted by applicable law.
+
+Use of the Service by You
+A. The Online Services are not intended for users under the age of 18, and we do not knowingly collect personally identifiable information from users under the age of 18. Such users are expressly prohibited from registering for the Online Services or submitting their personally identifiable information to us, and from using portions of the Online Services for which registration is required.
+B. You shall ensure that all equipment, hardware, software, products and/or services you use to access, visit, or use the Online Services do not disturb or interfere with our operation of the Online Services, or impede or interfere with others' access, visitation and/or use of the Online Services. We reserve the right, in addition to our other remedies, with or without notice, to immediately disconnect from the Service any equipment, hardware, software, product and/or services causing interference with us, our licensors, vendors, service providers, the Online Services.
+C. If you provide to us the number for a mobile or other device, or we obtain the device identifier for a device you are using, you agree, represent, warrant, and guarantee that such device is registered in your name and owned by you, or that you have permission of the device owner(s).
+D. Unless otherwise specified, the Online Services are intended for your personal, non-commercial use only. You are solely responsible for all usage of, or activities on, the Online Services by you and by those you authorize or allow to use, or provide access to, the Online Services.
+E. You must comply with all local, state, federal, provincial, national, international, and foreign laws, rules, and regulations in accessing and using the Online Services, and will immediately notify us if you learn of or suspect a security breach or any illegal activity in connection with the Online Services.
+Term and termination
+The Agreements will continue to apply to you until terminated by either you or Fyinance. Fyinance may terminate the Agreements or suspend your access to the Fyinance Service at any time, including in the event of your actual or suspected unauthorized use of the Fyinance Service and/or Content, or non-compliance with the Agreements. If you or Fyinance terminate the Agreements, or if Fyinance suspends your access to the Fyinance Service, you agree that Fyinance shall have no liability or responsibility to you and Fyinance will not refund
+
+any amounts that you have already paid, to the fullest extent permitted under applicable law.
+To learn how to terminate your Fyinance account, please contact us through the Customer Service contact form which is available on our About Us page. This section will be enforced to the extent permissible by applicable law. You may terminate the Agreements at any time.
+Any section listed below this section in the agreement, as well as any other sections of the Agreements that, either explicitly or by their nature, must remain in effect even after termination of the Agreements, shall survive termination.
+Indemnification
+You agree to indemnify, defend and hold harmless us, our licensors, vendors, service providers, and each of our and their respective officers, directors, members, employees, independent and sub-contractors, agents, representatives, successors and assigns (collectively, "Indemnitees") from and against any and all claims, disputes, demands, proceedings, cause of action, judgments, damages, liabilities, losses, costs or expense (including, but not limited to reasonable attorneys’ fees) of any kind and nature, known and unknown, suspected and unsuspected, disclosed and undisclosed (collectively, “Claims”) which may arise out of or are in any way connected with your access, visitation and/or use of the Online Services, or from any of your acts or omissions in connection with the Online Services.
+Disclaimer of Warranty and Limitation of Liability:
+A. CERTAIN FEATURES, FUNCTIONALITY, AND/OR CONTENT OFFERED ON OR THROUGH THE ONLIE SERVICES MAY BE HOSTED, ADMINISTERED, RUN OR OTHERWISE PARTICIPATED IN BY THIRD PARTIES, SUCH AS OUR SERVICE PROVIDERS THAT PROVIDE FINANCIAL SERVICES. FYINANCE INC. DOES NOT PROVIDE ANY FINANCIAL SERVICES SUCH AS BUT NOT LIMITED, TO SECURITIES ADVICE OR SALES. THESE SERVICE PROVIDERS MAY REQUIRE THAT YOU AGREE TO THEIR ADDITIONAL TERMS, CONDITIONS, CONTRACTS, AGREEMENTS AND/OR RULES. YOUR COMPLIANCE WITH ANY SUCH ADDITIONAL TERMS, CONDITIONS, CONTRACTS, AGREEMENTS AND/OR RULES IS SOLELY YOUR RESPONSIBILITY AND WILL HAVE NO EFFECT ON YOUR CONTINUING OBLIGATION TO COMPLY WITH THE USER AGREEMENT WHEN USING THE SERVICE. WE AND THE INDEMNITEES SPECIFICALLY DISCLAIM ANY AND ALL LIABILITY IN CONNECTION WITH THE ACTS OR OMISSIONS OF SUCH THIRD PARTIES.
+B. YOU ACKNOWLEDGE THAT YOU ARE USING THE ONLINE SERVICES AT YOUR OWN RISK. THE ONLINE SERVICES ARE PROVIDED "AS IS", "WITH ALL FAULTS" AND ON AN "AS AVAILABLE" BASIS, AND WE AND THE INDEMNITEES HEREBY EXPRESSLY DISCLAIM ANY AND ALL REPRESENTATIONS, WARRANTIES, AND GUARANTEES, EXPRESS AND IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF ACCURACY, RELIABILITY, TITLE, MERCHANTABILITY,
+
+NON-INFRINGEMENT, FITNESS FOR A PARTICULAR PURPOSE OR ANY OTHER WARRANTY,
+CONDITION, GUARANTEE OR REPRESENTATION, WHETHER ORAL, IN WRITING OR IN ELECTRONIC FORM, INCLUDING BUT NOT LIMITED TO THE ACCURACY OR COMPLETENESS OF ANY CONTENT CONTAINED THEREIN OR PROVIDED BY US OR THE ONLINE SERVICES. WE AND THE INDEMNITEES DO NOT REPRESENT, WARRANT OR GUARANTEE THAT ACCESS TO THE ONLINE SERVICES AND/OR COMMUNICATIONS OR MESSAGING FROM OR TO US OR YOU WILL BE UNINTERRUPTED, TIMELY, OR ERROR FREE, OR THAT THERE WILL BE NO FAILURES, DELAYS, INACCURACIES, ERRORS OR OMISSIONS OR LOSS OF TRANSMITTED CONTENT, OR THAT NO SOFTWARE DISABLING DEVICES, TIME BOMBS, VIRUSES, WORMS, BUGS, OR DEVICES OR DEFECTS OF SIMILAR NATURE WILL BE TRANSMITTED ON OR THROUGH THE SERVICE, AND WE AND THE INDEMNITEES WILL NOT BE LIABLE IN THE EVENT OF ANY SUCH OCCURRENCE.
+C. WE AND THE INDEMNITEES ARE NOT RESPONSIBLE FOR INCOMPLETE, INCORRECT, LOST, DELAYED, LATE, MISDIRECTED, GARBLED, DAMAGED, ILLEGIBLE, UNDELIVERABLE, OR INCOMPLETELY RECEIVED COMMUNICATIONS OR MESSAGING FROM OR TO US OR YOU FOR ANY REASON, INCLUDING BY REASON OF HARDWARE, SOFTWARE, BROWSER, NETWORK, COMMUNICATIONS SYSTEM FAILURE, MALFUNCTION, DELAY, OR CONGESTION, OR ANY INCOMPATIBILITY AT OUR SERVERS OR ELSEWHERE, OR FOR ANY OTHER TECHNICAL PROBLEMS, ANY FORM OF ACTIVE OR PASSIVE FILTERING BY A USER’S COMPUTER, MOBILE OR OTHER DEVICE OR ACCESS PROVIDER, INSUFFICIENT SPACE ON USER’S COMPUTER, MOBILE OR OTHER DEVICE OR ACCOUNT/PROFILE, OR ANY OTHER CAUSE OR COMBINATION THEREOF.
+D. WE AND THE INDEMNITEES SHALL NOT BE LIABLE TO YOU OR ANY THIRD PARTIES FOR ANY DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES ALLEGEDLY SUSTAINED ARISING OUT OF THIS USER AGREEMENT, THE ONLINE SERVICES, THE SALE, PURCHASE, RECEIPT, USE OR MISUSE OF ANY MERCHANDISE, PRODUCTS AND/OR SERVICES, INCLUDING WITHOUT LIMITATION CONTENT, YOUR ABILITY OR INABILITY TO ACCESS, VISIT AND/OR USE THE SERVICE, INCLUDING DAMAGE TO YOUR COMPUTER, MOBILE OR OTHER DEVICE, OR FOR SOFTWARE DISABLING DEVICES, TIME BOMBS, VIRUSES, WORMS, BUGS, OR DEVICES OR DEFECTS OF SIMILAR NATURE ALLEGED TO HAVE BEEN OBTAINED FROM THE SERVICE, YOUR ACCESS, VISITATION, AND/OR USE OF, OR RELIANCE ON, THE SERVICE OR ANY OF THE MERCHANDISE, PRODUCTS, SERVICES AND/OR CONTENT AVAILABLE ON OR THROUGH THE SERVICE, REGARDLESS OF THE TYPE OF CLAIM OR THE NATURE OF THE CAUSE OF ACTION, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN NO EVENT SHALL OUR LIABILITY TO YOU EXCEED THE TOTAL AMOUNT OF FEES PAID BY YOU DURING THE ONE MONTH PERIOD IN WHICH THE CLAIM AROSE. SOME STATES DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES. THE AGREEMENT IS NOT SUBJECT TO THE LAWS OF SUCH STATES, BUT TO THE EXTENT A CLAIM IS BROUGHT THEREIN, OUR LIABILITY AND WARRANTIES ARE
+
+LIMITED TO THE EXTENT PERMITTED BY LAW. IF YOU ARE A CALIFORNIA RESIDENT, YOU WAIVE
+CALIFORNIA CIVIL CODE SECTION 1542, WHICH STATES, IN PART: "A GENERAL RELEASE DOES NOT EXTEND TO CLAIMS WHICH THE CREDITOR DOES NOT KNOW OR SUSPECT TO EXIST IN HIS OR HER FAVOR AT THE TIME OF EXECUTING THE RELEASE, WHICH IF KNOWN BY HIM OR HER MUST HAVE MATERIALLY AFFECTED HIS OR HER SETTLEMENT WITH THE DEBTOR".
+Copyright Complaints:
+A. We respect the intellectual property of others, and we ask our users to do the same. We may, in appropriate circumstances and at our discretion, in addition to our other remedies, terminate, discontinue, suspend and/or restrict the account/profile or ability to access, visit, and/or use the Online Services of users who infringe the copyright rights of others, and we may choose to remove, delete, erase, or disable access to content deemed to be infringing. It is our policy to terminate the access of repeat infringers.
+B. If you have reason to believe that your content has been copied and/or is accessible on the Online Services in a way that constitutes copyright infringement, or that the Online Services contains links or other references to another site, application, destination or service that contains content or activity that infringes your copyright rights, you may notify us by providing a document via fax, first class U.S. mail, or e-mail that includes the following information (as required by the Online Copyright Infringement Liability Limitation Act of the Digital Millennium Copyright Act, 17 U.S.C. sec. 512) to our copyright agent set forth below:
+1. A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed;
+2. Identification of the copyrighted work claimed to have been infringed, or if multiple copyrighted works at the Online Services are covered by a single notification, a representative list of such works at the Online Services;
+3. Identification of the copyrighted work that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled, and information reasonably sufficient to permit us to locate such copyrighted work;
+4. Information reasonably sufficient to enable us to contact the complaining party, such as an address, telephone number, and if available, an electronic mail address at which the complaining party may be contacted;
+5. A statement that the complaining party has a good faith belief that use of the
+copyrighted work in the manner complained of is not authorized by the copyright owner, its agent, or the law; and
+6. A statement that the information in the notification is accurate, and under penalty of perjury, that the complaining party is authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.
+C. IMPORTANT: MISREPRESENTATIONS MADE IN A NOTICE CLAIMING THAT CONTENT OR ACTIVITY IS INFRINGING VIOLATES THE DIGITAL MILLENNIUM COPYRIGHT ACT AND MAY EXPOSE YOU TO LIABILITY FOR DAMAGES (INCLUDING COSTS AND ATTORNEYS' FEES). COURTS HAVE FOUND THAT YOU MUST CONSIDER COPYRIGHT DEFENSES, LIMITATIONS OR EXCEPTIONS BEFORE SENDING A NOTICE. ACCORDINGLY, IF YOU ARE NOT SURE WHETHER CONTENT RESIDING ON OUR ONLINE SERVICES INFRINGES YOUR COPYRIGHT, WE SUGGEST THAT YOU FIRST CONTACT AN ATTORNEY. IN ADDITION, PLEASE DETERMINE WHETHER THE CONTENT YOU ARE SENDING A NOTICE ABOUT IS ACTUALLY RESIDING ON OUR ONLINE SERVICES BEFORE SENDING THE NOTICE.
+Address to which Notification should be sent: Attn: DMCA Agent
+145 N. B. Street, Tustin, CA 92780
+D. Note:Onlycopyrightcomplaintsshouldbesenttothecopyrightagent.Noother communications to the copyright agent will be accepted or responded to.
+E. For communications on other matters, please contact us through the means described at the end of this Use Agreement.
+F. PLEASE NOTE: THE INFORMATION WE PRESENT HERE IS FOR INFORMATIONAL PURPOSES ONLY AND IS NOT LEGAL ADVICE.
+Arbitration
+A. Agreement that cannot be resolved, you or Fyinance may elect to arbitrate that Dispute in accordance with the terms of this Arbitration Provision rather than litigate the Dispute in court.
+Arbitration means you will have a fair hearing before a neutral arbitrator instead of in a court by a judge or jury.
+If you have a Dispute (as defined below) with Fyinance Inc., in connection with this User
+
+B. As used in this Provision, the term "Dispute" means any dispute, claim or controversy
+between you and Fyinance regarding any aspect of your relationship with Fyinance that has accrued or may hereafter accrue, whether based in contract, statute, regulation, ordinance, tort (including, but not limited to, fraud, misrepresentation, fraudulent inducement, negligence or any other intentional tort), or any other legal or equitable theory.
+
+C. Right to Opt Out. IF YOU DO NOT WISH TO BE BOUND BY THIS ARBITRATION PROVISION, YOU MUST NOTIFY FYINANCE IN WRITING WITHIN 30 DAYS FROM THE DATE THAT YOU FIRST RECEIVE THIS USER AGREEMENT. YOUR WRITTEN NOTIFICATION TO FYINANCE MUST INCLUDE YOUR NAME, ADDRESS AND ACCOUNT NUMBER AS WELL AS A CLEAR STATEMENT THAT YOU DO NOT WISH TO RESOLVE DISPUTES WITH FYINANCE THROUGH ARBITRATION. YOUR DECISION TO OPT OUT OF THIS ARBITRATION PROVISION WILL HAVE NO ADVERSE EFFECT ON YOUR RELATIONSHIP WITH FYINANCE OR THE DELIVERY OF SERVICES TO YOU. IF YOU HAVE PREVIOUSLY NOTIFIED FYINANCE OF YOUR DECISION TO OPT OUT OF ARBITRATION, YOU DO NOT NEED TO DO SO AGAIN.
+
+D. Restrictions:
+1. YOU MUST CONTACT US WITHIN ONE (1) YEAR OF THE DATE OF THE OCCURRENCE OF THE EVENT OR FACTS GIVING RISE TO A DISPUTE (EXCEPT FOR BILLING DISPUTES WHICH ARE SUBJECT TO SECTION 3 OF THE AGREEMENT), OR YOU WAIVE THE RIGHT TO PURSUE ANY CLAIM BASED UPON SUCH EVENT, FACTS OR DISPUTE.
+2. ALL PARTIES TO THE ARBITRATION MUST BE INDIVIDUALLY NAMED. THERE SHALL BE NO RIGHT OR AUTHORITY FOR ANY CLAIMS TO BE ARBITRATED OR LITIGATED ON A CLASS ACTION OR CONSOLIDATED BASIS OR ON BASES INVOLVING CLAIMS BROUGHT IN A PURPORTED REPRESENTATIVE CAPACITY ON BEHALF OF THE GENERAL PUBLIC (SUCH AS A PRIVATE ATTORNEY GENERAL), OTHER SUBSCRIBERS, OR OTHER PERSONS SIMILARLY SITUATED UNLESS THE STATUTE UNDER WHICH YOU ARE SUING PROVIDES OTHERWISE.
+3. ALL PARTIES WAIVE ANY CLAIM TO INDIRECT, CONSEQUENTIAL, PUNITIVE, EXEMPLARY OR MULTIPLIED DAMAGES ARISING FROM OR OUT OF ANY DISPUTE WITH FYINANCE UNLESS THE STATUTE UNDER WHICH THEY ARE SUING PROVIDES OTHERWISE.
+E. Exclusions from Arbitration. YOU AND FYINANCE AGREE THAT THE FOLLOWING WILL NOT BE SUBJECT TO ARBITRATION: (1) ANY CLAIM FILED BY YOU OR BY FYINANCE THAT IS NOT AGGREGATED WITH THE CLAIM OF ANY OTHER SUBSCRIBER AND WHOSE AMOUNT IN CONTROVERSY IS PROPERLY WITHIN THE JURISDICTION OF A COURT WHICH IS LIMITED TO
+
+ADJUDICATING SMALL CLAIMS; (2) ANY DISPUTE OVER THE VALIDITY OF ANY PARTY'S
+INTELLECTUAL PROPERTY RIGHTS; (3) ANY DISPUTE RELATED TO OR ARISING FROM ALLEGATIONS ASSOCIATED WITH UNAUTHORIZED USE OR RECEIPT OF SERVICE; (4) ANY DISPUTE THAT ARISES BETWEEN FYINANCE AND ANY STATE OR LOCAL REGULATORY AUTHORITY OR AGENCY THAT IS EMPOWERED BY FEDERAL, STATE OR LOCAL LAW TO GRANT A FRANCHISE UNDER 47 U.S.C. Section 522(9); AND (5) ANY DISPUTE THAT YOU PURSUE BEFORE THE LOCAL FRANCHISE AUTHORITY UNDER THE TERMS OF THE FRANCHISE.
+Entire agreement
+Other than as stated in this section or as explicitly agreed upon in writing between you and Fyinance, the Agreements constitute all the terms and conditions agreed upon between you and Fyinance and supersede any prior agreements in relation to the subject matter of these Agreements, whether written or oral.
+Severability and waiver
+Unless as otherwise stated in the Agreements, should any provision of the Agreements be held invalid or unenforceable for any reason or to any extent, such invalidity or enforceability shall not in any manner affect or render invalid or unenforceable the remaining provisions of the Agreements, and the application of that provision shall be enforced to the extent permitted by law.
+Any failure by Fyinance or any third party beneficiary to enforce the Agreements or any provision thereof shall not waive Fyinance’s or the applicable third party beneficiary’s right to do so.
+© 2016 Fyinance Inc. All rights reserved. Last Updated: 11/13/2016.
+
+							</p>
+
+
+
+							
+
+
+						</fieldset>
+
+						<input type="checkbox" name="accept" value="accept"> I Accpet <br>
+
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-primary"> Continue </button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
+

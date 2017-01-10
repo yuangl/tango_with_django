@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	 <div class="well hero row-fluid summary-box container">
+		
+		<img src="https://static.wixstatic.com/media/2be861_672bba9a4eed4b3495d646bcf222a33d~mv2.png/v1/fill/w_279,h_43,al_c,usm_0.66_1.00_0.01/2be861_672bba9a4eed4b3495d646bcf222a33d~mv2.png" class="img-thumbnail" alt="Responsive image">
+
+		<a href="{% url 'Calculator:logout' %}" type="link"> Logout </a>
+
+	</div>
+
+{% block body %}
+{% endblock %}
+</body>
+
+</html>

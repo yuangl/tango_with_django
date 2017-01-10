@@ -1,0 +1,215 @@
+{% extends 'Calculator/base.html' %}
+
+{% block body %}
+
+<div class="container-fluid">
+	<div class="row">
+		
+		<div class="well hero row-fluid summary-box container">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form  role="form" action="" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<fieldset>
+
+							    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+							    <script type="text/javascript">
+							    	google.charts.load('current', {'packages':['corechart']});
+							    	google.charts.setOnLoadCallback(drawChart);
+							    	function drawChart() {
+							        	var data = google.visualization.arrayToDataTable([
+								          	['Task', 'Dollars'],
+								          	['house', {{house}}],
+								          	['car', {{car}}],
+								          	['phone', {{phone}}],
+								          	['cable', {{cable}}],
+								          	['subscriptions', {{subscriptions}}],
+								          	['loan', {{loan}}],
+								          	['expenses', {{expenses}}],
+								        	]);
+
+								        var pie_options = {
+								          	title: 'Monthly Expenses Pie Chart'
+								        };
+
+							        	var pie_chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+							        	pie_chart.draw(data, pie_options);
+							    }
+							    </script>
+
+							    <div id="piechart" style="width: 650px; height: 300px;"></div>
+
+		  						<script type="text/javascript">
+								    google.charts.load("current", {packages:['corechart']});
+								    google.charts.setOnLoadCallback(drawChart);
+								    function drawChart() {
+								      var data = google.visualization.arrayToDataTable([
+								        ["Expenses", "$", { role: "style" } ],
+								        ["house", {{house}}, "blue"],
+								        ["car", {{car}}, "red"],
+								        ["phone", {{phone}}, "orange"],
+								        ["cable", {{cable}}, "green"],
+						     	        ["subscriptions", {{subscriptions}}, "gold"],
+								        ["loan", {{loan}}, "brown"],
+								        ["expenses", {{expenses}}, "purple"]
+								      ]);
+
+								      var view = new google.visualization.DataView(data);
+								      view.setColumns([0, 1,
+								                       { calc: "stringify",
+								                         sourceColumn: 1,
+								                         type: "string",
+								                         role: "annotation" },
+								                       2]);
+
+								      var options = {
+								        title: "Monthly Expenses Column Chart",
+								        width: 650,
+								        height: 300,
+								        bar: {groupWidth: "95%"},
+								        legend: { position: "none" },
+								      };
+								      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+								      chart.draw(view, options);
+								  }
+	 						    </script>
+								<div id="columnchart_values" style="width: 650px; height: 300px;"></div>
+
+
+								<script>
+								      google.charts.load('current', {'packages':['corechart']});
+								      google.charts.setOnLoadCallback(drawChart);
+
+								      function drawChart() {
+								        var data = google.visualization.arrayToDataTable([
+								          ['Month', 'Savings'],
+								          ['1',  {{savings}} ],
+								          ['2',  {{savings}}*2 ],
+								          ['3',  {{savings}}*3 ],
+								          ['4',  {{savings}}*4 ], 
+								          ['5',  {{savings}}*5 ], 
+								          ['6',  {{savings}}*6 ], 
+								          ['7',  {{savings}}*7 ], 
+								          ['8',  {{savings}}*8 ], 
+								          ['9',  {{savings}}*9 ], 
+								          ['10', {{savings}}*10], 
+								          ['11', {{savings}}*11], 
+								          ['12', {{savings}}*12], 
+								        ]);
+
+								        var options = {
+								          title: 'Yearly Savings Increment Line Chart I',
+								          curveType: 'function',
+								          legend: { position: 'bottom' }
+								        };
+
+								        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_I'));
+
+								        chart.draw(data, options);
+								      }
+								</script>
+ 								<div id="curve_chart_I" style="width: 650px; height: 300px;"></div>
+
+ 								<script>
+								      google.charts.load('current', {'packages':['corechart']});
+								      google.charts.setOnLoadCallback(drawChart);
+
+								      function drawChart() {
+								        var data = google.visualization.arrayToDataTable([
+								          ['Savings', 'Month'],
+								          ['{{savings}}', 1], 
+								          [{{savings}}*2, 2], 
+								          [{{savings}}*3, 3], 
+								          [{{savings}}*4, 4], 
+								          [{{savings}}*5, 5], 
+								          [{{savings}}*6, 6], 
+								          [{{savings}}*7, 7], 
+								          [{{savings}}*8, 8], 
+								          [{{savings}}*9, 9], 
+								          [{{savings}}*10, 10], 
+								          [{{savings}}*11, 11], 
+								          [{{savings}}*12, 12], 
+								        ]);
+
+								        var options = {
+								          title: 'Yearly Savings Increment Line Chart II',
+								          curveType: 'function',
+								          legend: { position: 'bottom' }
+								        };
+
+								        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_II'));
+
+								        chart.draw(data, options);
+								      }
+								</script>
+ 								<div id="curve_chart_II" style="width: 650px; height: 300px;"></div>
+
+	<!--
+							<script type="text/javascript">
+							google.charts.load('current', {packages: ['corechart', 'bar']});
+							google.charts.setOnLoadCallback(drawBasic);
+
+							function drawBasic() {
+
+							      var data = new google.visualization.DataTable();
+							      data.addColumn('timeofday', 'Types of Expenses');
+							      data.addColumn('number', '$');
+
+							      data.addRows([
+							        [{v: [8, 0, 0], f: 'house'}, 1],
+							        [{v: [9, 0, 0], f: 'car'}, 2],
+							        [{v: [10, 0, 0], f:'10 am'}, 3],
+							        [{v: [11, 0, 0], f: '11 am'}, 4],
+							        [{v: [12, 0, 0], f: '12 pm'}, 5],
+							        [{v: [13, 0, 0], f: '1 pm'}, 6],
+							        [{v: [14, 0, 0], f: '2 pm'}, 7],
+							        [{v: [15, 0, 0], f: '3 pm'}, 8],
+							        [{v: [16, 0, 0], f: '4 pm'}, 9],
+							        [{v: [17, 0, 0], f: '5 pm'}, 10],
+							      ]);
+
+							      var options = {
+							        title: 'Monthly Expenses Column Chart',
+							        hAxis: {
+							          title: 'Types of Expenses',
+							          format: 'h:mm a',
+							          viewWindow: {
+							            min: [7, 30, 0],
+							            max: [17, 30, 0]
+							          }
+							        },
+							        vAxis: {
+							          title: 'Dollars'
+							        }
+							      };
+
+							      var chart = new google.visualization.ColumnChart(
+							        document.getElementById('chart_div'));
+
+							      chart.draw(data, options);
+							    }
+							</script>
+	  						<div id="chart_div"></div>
+-->
+						</fieldset>
+
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<a href="{% url 'Calculator:index' client %}" type="button" class="btn btn-primary"> Back to Calculator </a>
+								<br><br>
+								<a href="{% url 'Calculator:logout' %}" type="button" class="btn btn-danger"> logout </a>
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		
+	</div>
+</div>
+
+{% endblock %}
+
+
+
