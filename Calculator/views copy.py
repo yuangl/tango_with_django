@@ -7,6 +7,8 @@ from .forms import UserForm, VariablesForm, ExpensesForm, VariablesFormOne, Vari
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
 
+# test version
+
 def user_type(request):
     if request.method == "POST":
         client = request.POST['options']
