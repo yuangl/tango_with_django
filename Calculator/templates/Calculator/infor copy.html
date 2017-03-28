@@ -1,0 +1,58 @@
+
+{% extends 'Calculator/base.html' %}
+
+{% load mathfilters  %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="well hero row-fluid summary-box container">
+        	<div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    
+                    <p>{{economic_news.income_description}} </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>National Average Income</h3>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h3>&#36 {{economic_news.income_value}}</h3>
+                        </div>
+
+                        <div class="col-md-3">
+                            {% if economic_news.income_rate >= 0 %}
+                                <h3 style="color:green" >
+                                    <span class="glyphicon glyphicon-arrow-up" style="color:green"></span>  
+                                    + &#36 {{economic_news.income_rate}}
+                                </h3>
+
+                            {% else %}
+                                <h3 style="color:red">
+                                    <span class="glyphicon glyphicon-arrow-down" style="color:red"></span>  
+                                    - &#36 {{economic_news.income_rate | abs}}
+                                </h3>
+                            {% endif %}
+                        </div>
+                     </div>   
+                     <p>{{economic_news.income_description}} </p>
+
+
+                </div>
+
+            </div>
+            </div>
+            
+            <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body"><iframe src="https://www.google.com/finance/converter" frameborder=0></iframe></div>
+            </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

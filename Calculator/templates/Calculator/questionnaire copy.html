@@ -1,0 +1,179 @@
+{% extends 'Calculator/base.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="well hero row-fluid summary-box container">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Questionnaire</h3>
+                    <p>This is an assist questionnaire to make sure the plan we provide you best suits you and is affordable. Our goal is to help you save no help your spend.</p>
+
+                    <form class="form-horizontal" role="form" action="{% url 'Calculator:questionnaire' key %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="last_name">Last Name: </label>
+                            <div class="col-sm-10">
+                                <input id="last_name" maxlength="100" name="last_name" type="text" class="form-control" value="" placeholder="Last Name" required>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="first_name">First Name:</label>
+                            <div class="col-sm-10">
+                                <input id="first_name" maxlength="100" name="first_name" type="text" class="form-control" value=""  placeholder="First Name" required>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="zip_code">Zip Code:</label>
+                            <div class="col-sm-10">
+                                <input id="zip_code" min = "10000" max="99999" name="zip_code" type="number" class="form-control" value=92612 placeholder="Zip Code" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="phone_number">Telephone:</label>
+                            <div class="col-sm-10">
+                                <input id="phone_number" min="1000000000" max="9999999999" name="phone_number" type="number" class="form-control"  value="9499818814" placeholder="Telephone" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="age">Date of Birth:</label>
+                            <div class="col-sm-10" id="age">
+                                <input id="age" name="age" type="date" value="1979-12-31" class="form-control" placeholder="Date 0f Birth">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="sex">Gender:</label>
+                            <div class="col-sm-10" id="sex" >
+                                <select class="form-control" name="sex">
+                                  <option value="Male"> Male </option>
+                                  <option value="Female"> Female </option>
+                                </select>
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="martial_status">Martial Status:</label>
+                            <div class="col-sm-10" id="martial_status" >
+                                <select class="form-control" name="martial_status">
+                                  <option value="Single"> Single </option>
+                                  <option value="Divorced"> Divorced </option>
+                                  <option value="Partnered"> Partnered </option>
+                                  <option value="Widowed"> Widowed </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="education">Education:</label>
+                            <div class="col-sm-10" id="education" >
+                                <select class="form-control" name="education">
+                                  <option value="High School"> High School </option>
+                                  <option value="Some College"> Some College </option>
+                                  <option value="Bachelors"> Bachelors </option>
+                                  <option value="Masters"> Masters </option>
+                                  <option value="PHD"> PHD </option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="financial_knowledge">Financial Knowledge:</label>
+                            <div class="col-sm-10" id="financial_knowledge">
+
+                                <label class="radio-inline">
+                                  <input type="radio" name="financial_knowledge" id="financial_knowledge" value="Few" checked> Few
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="financial_knowledge" id="financial_knowledge" value="Some"> Some
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="financial_knowledge" id="financial_knowledge" value="Okey">Okey
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="financial_knowledge" id="financial_knowledge" value="Expert">Expert
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Do you have a ______:</label>
+                            <div class="col-sm-10" id="financial_knowledge">
+
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_bank_account" id="boolean_bank_account" value="True"> Bank Account
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_car" id="boolean_car" value="True"> Car
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_home" id="boolean_home" value="True"> House
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_children" id="boolean_children" value="True"> Children
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_credit_cards" id="boolean_credit_cards" value="True"> Credit Cards
+                                </label>                               
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_college_loan" id="boolean_college_loan" value="True"> College_loan
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_medical_debt" id="boolean_medical_debt" value="True"> Medical Debt
+                                </label>                               
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="col-sm-12"><strong>Do you like your insurance company? </strong></div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" for="insurance_company_satisfaction">Company name</label>
+                            <div class="col-sm-9" id="insurance_company_satisfaction">
+                                <label class="radio-inline">
+                                  <input type="radio" name="insurance_company_satisfaction" id="insurance_company_satisfaction" value="Yes" checked> Yes
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="insurance_company_satisfaction" id="insurance_company_satisfaction" value="No"> No
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="insurance_company_satisfaction" id="insurance_company_satisfaction" value="Do Not Have"> Do Not Have
+                                </label>
+                            </div>
+                        </div>
+
+ 
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+
+                       
+                    </form>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

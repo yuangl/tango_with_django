@@ -1,0 +1,18 @@
+{% extends 'Calculator/base.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="well hero row-fluid summary-box container">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>User Does not Exist</h4>
+                </div>
+                <div class="panel-footer">
+                    Don't have an account? <a href="{% url 'Calculator:register' %}">Click here</a> to register.
+    </div>
+            </div> 
+        </div>
+    </div>
+     
+</div>
+{% endblock %}

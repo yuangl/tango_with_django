@@ -12,6 +12,14 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 import os
 
+# Email system
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ucitimli@gmail.com'
+EMAIL_HOST_PASSWORD = 'LiYuang19920221'
+EMAIL_PORT = 587
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mathfilters',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -119,3 +128,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+

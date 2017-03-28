@@ -6,12 +6,15 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="well hero row-fluid summary-box container">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
+				<div class="panel panel-heading">
+					<h3 class="panel-title"> <h4> User Agreement </h4></h3>
+				</div>
+
 				<div class="panel-body">
 					<form  role="form" action="{% url 'Calculator:accept' %}" method="post" enctype="multipart/form-data">
 						{% csrf_token %}
 						<fieldset>
-							<h1> USER AGREEMENT </h1>
 							<p>This USER AGREEMENT ("AGREEMENT") covers Fyinance, Inc. (“Fyinance”). This entity may be referred to as "we," "us," and "our" throughout this Policy.</p>
 Introduction
 Thanks for choosing Fyinance. By signing up or otherwise using the Fyinance service, websites, and software applications (together, the “Fyinance Service,” “Online Service,” or “Service”), or accessing any content or material that is made available by Fyinance through the Service (the “Content”) you are entering into a binding contract with Fyinance Inc.

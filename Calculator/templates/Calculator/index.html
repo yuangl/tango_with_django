@@ -9,10 +9,26 @@
 <div class="row">
 <div class="well hero row-fluid summary-box container">
 
+		<div class="row-fluid">
+		<div class="panel panel-primary">
+              	<div class="panel-heading">
+                    <div class="panel-title"><h4>Home Page:</h4></div>
+                </div>
+                <div class="panel-body">
+                    <img src="http://www.jobsinrockcounty.com/Portals/_default/Images/news-banner.jpg" class="img-thumbnail">
+                </div>
+        </div>
+        </div>
 
+        <div class="row">
 		<div class="col-md-7">
-			<div class="panel panel-default">
-				<div class="panel-body">
+			<div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Calculator
+                      </h3>
+                    </div>
+
+				<div class="panel-body"> <!-- style="height: 2240px">-->
 					<form  role="form" action="{% url 'Calculator:index' client %}" method="post" enctype="multipart/form-data">
 						{% csrf_token %}
 						<fieldset>
@@ -30,11 +46,20 @@
 							      			<div class="input-group-addon">{{j}}: $</div>
 							      		{% endif %}
 
-							      		{% if forloop.counter0 == 0 or forloop.counter0 == 1 or forloop.counter0 == 2 %}
+							      		{% if forloop.counter0 == 0 or forloop.counter0 == 1 or forloop.counter0 == 2%}
+											<input name={{i}} id={{i}} type="number" step="0.01" min="0" max="100000000" value="{{variables|getattribute:i}}" class="form-control" placeholder="{{k}}" readonly></br>
+										{% elif client == 1 and forloop.counter0 >= 29 %}
+											<input name={{i}} id={{i}} type="number" step="0.01" min="0" max="100000000" value="{{variables|getattribute:i}}" class="form-control" placeholder="{{k}}" readonly></br>
+										{% elif client == 0 and forloop.counter0 >= 20 %}
+											<input name={{i}} id={{i}} type="number" step="0.01" min="0" max="100000000" value="{{variables|getattribute:i}}" class="form-control" placeholder="{{k}}" readonly></br>
+										{% elif client == "1" and forloop.counter0 >= 29 %}
+											<input name={{i}} id={{i}} type="number" step="0.01" min="0" max="100000000" value="{{variables|getattribute:i}}" class="form-control" placeholder="{{k}}" readonly></br>
+										{% elif client == "0" and forloop.counter0 >= 20 %}
 											<input name={{i}} id={{i}} type="number" step="0.01" min="0" max="100000000" value="{{variables|getattribute:i}}" class="form-control" placeholder="{{k}}" readonly></br>
 										{% else %}
 											<input name={{i}} id={{i}} type="number" step="0.01" min="0" max="100000000" value="{{variables|getattribute:i}}" class="form-control" placeholder="{{k}}"></br>
 										{% endif %}
+
 							
 										{% if forloop.counter0 == 4 %}
 											<div class="input-group-addon">Year (s)&nbsp;</div>
@@ -68,14 +93,14 @@
 				</div>
 				</div>
 			</div>
-		
-	
 
 	<div class="col-md-5">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Pie Chart
+                      </h3>
+                    </div>
 				<div class="panel-body">
-
-
 					<form  role="form" action="" method="post" enctype="multipart/form-data">
 						{% csrf_token %}
 						<fieldset>
@@ -107,7 +132,7 @@
 							    </script>
 
 
-							    <div id="piechart" style="height:350px; "></div>
+							    <div id="piechart" style="height:370px; "></div>
 
 						</fieldset>
 						</form>
@@ -117,7 +142,11 @@
 
 
 	<div class="col-md-5">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
+			 <div class="panel-heading">
+                      <h3 class="panel-title">Bar Chart
+                      </h3>
+                    </div>
 				<div class="panel-body">
 					<form  role="form" action="" method="post" enctype="multipart/form-data">
 						{% csrf_token %}
@@ -150,23 +179,106 @@
 
 								      var options = {
 								        title: "Monthly Expenses Column Chart",
-								        bar: {groupWidth: "95%"},
+								        bar: {groupWidth: "75%"},
 								        legend: { position: "none" },
 								      };
 								      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
 								      chart.draw(view, options);
 								  }
 	 						    </script>
-								<div id="columnchart_values" style="height:350px;" ></div>
+								<div id="columnchart_values" style="height:370px;" ></div>
 
 						</fieldset>
 						</form>
 		</div>
 	</div>
 </div>
+<div class="col-md-5">
+			<div class="panel panel-primary">
+				 <div class="panel-heading">
+                      <h3 class="panel-title">Bar Chart In Details
+                  </div>
+				<div class="panel-body">
+
+								<script>
+							        google.charts.load("current", {packages:["corechart"]});
+    								google.charts.setOnLoadCallback(drawChart);
+
+								      function drawChart() {
+								        var data = google.visualization.arrayToDataTable([
+									        ['Genre', 
+									        	'House Monthly Payment', 
+									        	'House Utility', 
+									        	'House Misc.', 
+
+									        	'Car Monthly Payment',
+									         	'Car Insurance', 
+
+									         	'Phone Monthly Payment', 
+									         	'Phone Protection', 
+
+									         	'Cable Montly Payment', 	
+									         	'Phone Subscriptions',
+
+									        	'Computer Subscriptions',
+									        	'Other Subscriptions', 
+
+												'Medical Debt',
+												'Car Loan', 
+												'Student Loan',
+												'Mortgage',
+												'Credit Card Debt',
+												'Misc. Debts',
+
+												'Family Expenses',
+												'Medical Expenses',
+												'Dental Expenses',
+												'College Expenses',
+												'Food Expenses',
+												'Clothes Expenses',
+												'Life Insurance Expenses',
+												'Misc. Expenses',
+									        	{ role: 'annotation' } ],
+									        ['House', 			{{variables.house_rent}}, {{variables.house_utility}}, {{variables.house_misc}}, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,''],
+									        ['car', 			0, 0, 0, {{variables.car_rent}}, {{variables.car_insurance}}, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,''],
+									        ['phone & cable',	0, 0, 0, 0, 0, {{variables.phone_rent}}, {{variables.phone_insurance}}, {{variables.cable_rent}}, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,''],
+									        ['subscriptions',	0, 0, 0, 0, 0, 0, 0, 0, {{variables.phone_subscriptions}}, {{variables.computer_subscriptions}}, {{variables.other_subscriptions}}, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,''],
+									        ['loan', 			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, {{variables.medical_loan}}, {{variables.car_loan}}, {{variables.college_loan}} , {{variables.house_loan}}, {{variables.credit_card_loan}}, {{variables.misc_loan}}, 
+									         0, 0, 0, 0, 0, 0, 0, 0, ''],
+									        ['expenses', 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, {{variables.family_expenses}}, {{variables.medical_expenses}}, {{variables.dental_expenses}},  {{variables.college_expenses}}, {{variables.grocery_expenses}}, {{variables.cloth_expesnses}},{{variables.life_insurance_expenses}},  {{variables.misc_expenses}}, ''],
+									      ]);
+										var view = new google.visualization.DataView(data);
+
+
+									    var options = {
+									        legend: { position: 'top', maxLines: 3 },
+									        bar: { groupWidth: '75%' },
+									        isStacked: 'percent',
+									        hAxis: {
+										        minValue: 0,
+										        ticks: [0, .25, .5, .75, 1]
+									    	}
+									      };
+
+
+								        var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+
+      									chart.draw(view, options);
+								      }
+
+
+								</script>
+ 								<div id="barchart_values" style="height:370px;"></div>
+		</div>
+	</div>
+</div>
 
 <div class="col-md-5">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
+				 <div class="panel-heading">
+                      <h3 class="panel-title">Area Chart
+                      </h3>
+                    </div>
 				<div class="panel-body">
 
 								<script>
@@ -196,12 +308,12 @@
 								          legend: { position: 'bottom' }
 								        };
 
-								        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_I'));
+								        var chart = new google.visualization.AreaChart(document.getElementById('curve_chart_I'));
 
 								        chart.draw(data, options);
 								      }
 								</script>
- 								<div id="curve_chart_I" style="height:350px;"></div>
+ 								<div id="curve_chart_I" style="height:370px;"></div>
 
 
 
@@ -211,9 +323,38 @@
 	</div>
 </div>
 
-	<div class="col-md-5">
-			<div class="panel panel-default">
-				<div class="panel-body">
+
+<div class="col-md-5">
+
+{% if client == 1 or client == 2 or client == "1" or client == "2" %} 
+<!--Currency Converter widget by FreeCurrencyRates.com -->
+
+<div id='gcw_mainFurQpwykf' class='gcw_mainFurQpwykf'></div>
+<a id='gcw_siteFurQpwykf' href='https://freecurrencyrates.com/en/'>FreeCurrencyRates.com</a>
+<script>function reloadFurQpwykf(){ var sc = document.getElementById('scFurQpwykf');if (sc) sc.parentNode.removeChild(sc);sc = document.createElement('script');sc.type = 'text/javascript';sc.charset = 'UTF-8';sc.async = true;sc.id='scFurQpwykf';sc.src = 'https://freecurrencyrates.com/en/widget-horizontal-editable?iso=USDCNYEURGBPJPYTWDHKDKRWCADAUDRUB&df=1&p=FurQpwykf&v=fits&source=fcr&width=450&width_title=300&firstrowvalue=1&thm=A6C9E2,FCFDFD,4297D7,5C9CCC,FFFFFF,C5DBEC,FCFDFD,2E6E9E,000000&title=Currency%20Converter&tzo=420';var div = document.getElementById('gcw_mainFurQpwykf');div.parentNode.insertBefore(sc, div);} reloadFurQpwykf(); </script>
+<!-- put custom styles here: .gcw_mainFurQpwykf{}, .gcw_headerFurQpwykf{}, .gcw_ratesFurQpwykf{}, .gcw_sourceFurQpwykf{} -->
+<!--End of Currency Converter widget by FreeCurrencyRates.com -->
+
+{% else %}
+<!--Currency Converter widget by FreeCurrencyRates.com -->
+
+<div id='gcw_mainFurQpwykf' class='gcw_mainFurQpwykf'></div>
+<a id='gcw_siteFurQpwykf' href='https://freecurrencyrates.com/en/'>FreeCurrencyRates.com</a>
+<script>function reloadFurQpwykf(){ var sc = document.getElementById('scFurQpwykf');if (sc) sc.parentNode.removeChild(sc);sc = document.createElement('script');sc.type = 'text/javascript';sc.charset = 'UTF-8';sc.async = true;sc.id='scFurQpwykf';sc.src = 'https://freecurrencyrates.com/en/widget-horizontal?iso=USDCNYEURGBPJPYTWDHKDKRWCADAUDRUB&df=1&p=FurQpwykf&v=fits&source=fcr&width=450&width_title=300&firstrowvalue=1&thm=A6C9E2,FCFDFD,4297D7,5C9CCC,FFFFFF,C5DBEC,FCFDFD,2E6E9E,000000&title=Currency%20Converter&tzo=420';var div = document.getElementById('gcw_mainFurQpwykf');div.parentNode.insertBefore(sc, div);} reloadFurQpwykf(); </script>
+<!-- put custom styles here: .gcw_mainFurQpwykf{}, .gcw_headerFurQpwykf{}, .gcw_ratesFurQpwykf{}, .gcw_sourceFurQpwykf{} -->
+<!--End of Currency Converter widget by FreeCurrencyRates.com -->
+{% endif %}
+                   
+				<!--Currency Converter widget by FreeCurrencyRates.com -->
+
+<!--Currency Converter widget by FreeCurrencyRates.com -->
+
+
+<!-- put custom styles here: .gcw_mainFgxfT2NEH{}, .gcw_headerFgxfT2NEH{}, .gcw_ratesFgxfT2NEH{}, .gcw_sourceFgxfT2NEH{} -->
+<!--End of Currency Converter widget by FreeCurrencyRates.com -->
+<!-- put custom styles here: .gcw_mainFgxfT2NEH{}, .gcw_headerFgxfT2NEH{}, .gcw_ratesFgxfT2NEH{}, .gcw_sourceFgxfT2NEH{} -->
+<!--End of Currency Converter widget by FreeCurrencyRates.com -->
+				<!--
  								<script>
 								      google.charts.load('current', {'packages':['corechart']});
 								      google.charts.setOnLoadCallback(drawChart);
@@ -246,21 +387,43 @@
 								        chart.draw(data, options);
 								      }
 								</script>
- 								<div id="curve_chart_II" style="height:350px;"></div>
+ 								<div id="curve_chart_II" style="height:370px;"></div>
+ 								-->
 
- 								</fieldset>
-					</form>
-
-</div>
 
 </div>
-				</div>
+
+</div>
+</div>
+
+
 				</div>
 			</div>
+
+
+
+
 		</div>
 	</div>
 </div>
+</div>
 
+
+{% if client == 1 or client == 2 or client == "1" or client == "2" %} 
+		<!--Start of Tawk.to Script-->
+		<script type="text/javascript">
+		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+		(function(){
+		var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+		s1.async=true;
+		s1.src='https://embed.tawk.to/58bf4fc25b8fe5150eed5148/default';
+		s1.charset='UTF-8';
+		s1.setAttribute('crossorigin','*');
+		s0.parentNode.insertBefore(s1,s0);
+		})();
+		</script>
+		<!--End of Tawk.to Script-->
+{% endif %}
 {% endblock %}
 
 

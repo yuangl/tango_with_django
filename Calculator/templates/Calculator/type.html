@@ -7,25 +7,36 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="well hero row-fluid summary-box container">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<h4> Accounts Purchases </h4>
+					</h3>
+	            </div>
+
 				<div class="panel-body">
+
+				<!--
 					<form  role="form" action="{% url 'Calculator:type' %}" method="post" enctype="multipart/form-data">
 						{% csrf_token %}
 						<fieldset>
-							<lengend>Type</lengend>
 
-							<div class="btn-group" data-toggle="buttons">
-								<label class="btn btn-primary active">
-    								<input type="radio" name="options" id="option1" autocomplete="off" value="0" checked> Client 1
-  								</label><br>
-  								<label class="btn btn-primary">
-   									<input type="radio" name="options" id="option2" autocomplete="off" value="1"> Client 2
-  								</label><br>
-  								<label class="btn btn-primary">
-  								 	<input type="radio" name="options" id="option3" autocomplete="off" value="2"> Client 3
-  								</label><br>
-							</div><br>
+						<div class="form-group">
+                            <label class="control-label col-sm-2" for="client_type">client_type</label>
+                            <div class="col-sm-10" id="client_type">
+                                <label class="radio-inline">
+                                  <input type="radio" name="client_type" id="client_type" value="0" checked> 0
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="client_type" id="client_type" value="1"> 1
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="client_type" id="client_type" value="2"> 2
+                                </label>
+                            </div>
+                        </div>
 
+	
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<button type="submit" class="btn btn-success"> Choose </button>
@@ -35,7 +46,87 @@
 						</fieldset>
 
 					</form>
-				</div>
+		-->	
+				<div class="row" >
+					<div class="col-md-3">
+						<div class="panel panel-default" >
+							<div class="panel-heading" align="center">
+								<h3 class="panel-title">Silver Pass</h3>
+			                </div>
+
+			                <div class="panel-body" align="center">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+								<input type="hidden" name="cmd" value="_s-xclick">
+								<input type="hidden" name="hosted_button_id" value="GZC7JH3SW9WDC">
+								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							</div>
+		                </div>
+		            </div>
+
+		            <div class="col-md-3">
+						<div class="panel panel-warning" >
+							<div class="panel-heading" align="center">
+								<h3 class="panel-title">Gold Pass</h3>
+			                </div>
+
+			                <div class="panel-body" align="center">
+
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+								<input type="hidden" name="cmd" value="_s-xclick">
+								<input type="hidden" name="hosted_button_id" value="536Y7U7K3LWAA">
+								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							</div>
+		                </div>
+					</div>
+		            
+		            <div class="col-md-3">
+						<div class="panel panel-info" >
+							<div class="panel-heading" align="center">
+								<h3 class="panel-title">Platinum Pass</h3>
+			                </div>
+
+			                <div class="panel-body" align="center">
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+								<input type="hidden" name="cmd" value="_s-xclick">
+								<input type="hidden" name="hosted_button_id" value="L8ENA3VLP772Y">
+								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							</div>
+		                </div>
+		            </div>
+		            
+		            <div class="col-md-3">
+						<div class="panel panel-success" align="center">
+							<div class="panel-heading" align="center">
+								<h3 class="panel-title">Student Pass</h3>
+			                </div>
+
+			                <div class="panel-body" align="center">
+			                	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+								<input type="hidden" name="cmd" value="_s-xclick">
+								<input type="hidden" name="hosted_button_id" value="GZC7JH3SW9WDC">
+								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+
+
+			                <!--
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+								<input type="hidden" name="cmd" value="_s-xclick">
+								<input type="hidden" name="hosted_button_id" value="A5PANDQ8EUVQL">
+								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+								</form>
+							-->
+							</div>
+		                </div>
+		            </div>
+			</div>
 			</div>
 		</div>
 	</div>

@@ -183,6 +183,36 @@ def monthname(month_num):
     return names[month_num]
 '''
 
+ health_insurance_satisfaction = models.CharField(max_length=100, default="")
+    dental_insurance_satisfaction = models.CharField(max_length=100, default="")
+    car_insurance_satisfaction = models.CharField(max_length=100, default="")
+    house_insurance_satisfaction = models.CharField(max_length=100, default="")
+    life_insurance_satisfaction = models.CharField(max_length=100, default="")
+    cable_insurance_satisfaction = models.CharField(max_length=100, default="")
+    phone_insurance_satisfaction = models.CharField(max_length=100, default="")
+
+    health_insurance_provider = models.CharField(max_length=100, default="")
+    dental_insurance_provider = models.CharField(max_length=100, default="")
+    car_insurance_provider = models.CharField(max_length=100, default="")
+    house_insurance_provider = models.CharField(max_length=100, default="")
+    life_insurance_provider = models.CharField(max_length=100, default="")
+    cable_insurance_provider = models.CharField(max_length=100, default="")
+    phone_insurance_provider = models.CharField(max_length=100, default="")
+
+    boolean_car_purchase_plan = models.BooleanField(default=True)
+    boolean_home_finance_plan = models.BooleanField(default=True)
+    boolean_college_loan_plan = models.BooleanField(default=True)
+    boolean_children_plan = models.BooleanField(default=True)
+    boolean_marriage_plan = models.BooleanField(default=True)
+    boolean_start_business_plan = models.BooleanField(default=True)
+    booelan_other_purchase_plan = models.BooleanField(default=True)
+
+    percentage_of_income_to_save = models.CharField(max_length=100, default="")
+    spending_consideration = models.CharField(max_length=100, default="")
+    financial_change_speed = models.CharField(max_length=100, default="")
+    financial_knowledge = models.CharField(max_length=100, default="")
+    investment_interested = models.CharField(max_length=100, default="")
+    vacation_plan = models.CharField(max_length=100, default="")
 
 
 		

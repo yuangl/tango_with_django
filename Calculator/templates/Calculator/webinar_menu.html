@@ -1,0 +1,238 @@
+{% extends 'Calculator/base.html' %}
+{% block body %}
+
+
+{% load staticfiles %}
+{% load mathfilters %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'Calculator/style.css' %}" />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="well hero row-fluid summary-box container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title"><h4>Webinars: </h4></div>
+                </div>
+                <div class="panel-body">
+                    <img src="http://safronltd.com/wp-content/uploads/2016/04/finance-banner.jpg" class="img-thumbnail">
+                </div>
+                </div>
+
+
+                
+                    <div class="row">
+                    <div class="col-md-6">
+                    	<div class="panel panel-primary">
+                    	<div class="panel-heading">
+  							<div class="panel-title">Upcoming Webinars</div>
+  						</div>
+  						<div class="panel-body" align="center" style="min-height: 750px">
+                        
+
+                        {% for i in upcoming_pages %}
+                            <div class="row">
+                                <div class="col-sm-6 col-md-12">
+                                    <div class="thumbnail" style="min-height: 200px">
+
+                                        <div class="media"  style="margin-left: 2em">
+                                            
+                                            <div class="media-left media-middle">
+                                                <a href="{{i.webinar_url}}" class="media-object">
+                                                    <time datetime="{{i}}" class="icon">
+                                                        <em>{{i.webinar_day_of_week}}</em> 
+                                                        <strong>{{i.webinar_month_name}} {{i.webinar_year}} </strong>
+                                                        <span>{{i.webinar_date_of_month}}</span>
+                                                    </time>
+                                                    
+                                                </a>
+                                            </div>
+                                            
+                                            
+                                            
+                                            <div class="media-body" >
+                                                <h4><a href="{{i.webinar_url}}" class="media-heading">{{i.webinar_name}}</a></h4>
+
+                                                <h5>Moderator:  <strong>{{i.webinar_speaker}} </strong></h5>
+
+                                                <h5>Time: {{i.webinar_time}} </h5>
+
+                                                <h6 style="margin-left: 2em;  margin-right: 2em" align="left">Description: {{i.webinar_description}} </h6>
+
+
+
+                                                <a href="{{i.webinar_url}}">
+                                                <span type="button" class="btn btn-primary btn-xs">
+                                                    <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> Watch the Webinar
+                                                </span>
+                                                </a>
+                                            
+
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                                                          
+                        {% endfor %}
+                        
+                            
+                                  <ul class="pagination justify-content-center">
+                                    <li class="page-item">
+                                    {% if upcoming_pages.has_previous %}
+                                        <a class="page-link" href="?page={{ upcoming_pages.previous_page_number }}" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    {% else %}
+                                        <a class="page-link disabled" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    {% endif %}
+                                    </li>
+
+                                    <li class="page-item active">
+                                        <a class="page-link">
+                                            Page {{ upcoming_pages.number }} of {{ upcoming_pages.paginator.num_pages }}
+                                            <span class="sr-only">(current)</span>
+                                        </a>
+                                    </li>
+                            
+
+                                    <li class="page-item">
+                                    {% if upcoming_pages.has_next %}
+                                        <a class="page-link" href="?page={{ upcoming_pages.next_page_number }}" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    {% else %}
+                                        <a class="page-link disabled" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    
+                                    {% endif %}
+                                    </li>
+                                  </ul>
+                                
+                            
+                        </div>
+                    </div>
+                    </div>
+                    
+
+                    	<div class="row-fluid">
+                        <div class="col-md-6">
+                    	<div class="panel panel-primary">
+                    	<div class="panel-heading">
+  							<div class="panel-title">Past Webinars</div>
+  						</div>
+  						<div class="panel-body" align="center" style="min-height: 750px">
+
+
+                        {% for i in past_pages %}
+                        <div class="row">
+                                <div class="col-sm-6 col-md-12">
+                                    <div class="thumbnail" style="min-height: 200px">
+                                        <div class="media" style="margin-left: 2em">
+                                            <div class="media-left media-middle">
+                                                <a href="{{i.webinar_url}}" class="media-object">
+                                                    <time datetime="{{i}}" class="icon">
+                                                        <em>{{i.webinar_day_of_week}}</em> 
+                                                        <strong>{{i.webinar_month_name}} {{i.webinar_year}} </strong>
+                                                        <span>{{i.webinar_date_of_month}}</span>
+                                                    </time>
+                                                </a>
+                                            </div>
+                                        
+                                            <div class="media-body">
+                                                <h4>
+                                                 <a href="{{i.webinar_url}}" class="media-heading">{{i.webinar_name}}</a> 
+                                                </h4>
+
+                                                <h5>
+                                                    Moderator:  <strong>{{i.webinar_speaker}} </strong>
+                                                </h5>
+
+                                                <h5>Time: {{i.webinar_time}} </h5>
+
+                                                <h6 style="margin-left: 2em;  margin-right: 2em" align="left">Description: {{i.webinar_description}} </h6>
+
+
+                                                <a href="{{i.webinar_url}}">
+                                                <span type="button" class="btn btn-primary btn-xs">
+                                                    <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i> Watch the Webinar
+                                                </span>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        
+                                  <ul class="pagination justify-content-center">
+                                    <li class="page-item">
+                                    {% if past_pages.has_previous %}
+                                        <a class="page-link" href="?page={{ past_pages.previous_page_number }}" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    {% else %}
+                                        <a class="page-link disabled" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    {% endif %}
+                                    </li>
+
+                                    <li class="page-item active">
+                                        <a class="page-link">
+                                            Page {{ past_pages.number }} of {{ past_pages.paginator.num_pages }}
+                                            <span class="sr-only">(current)</span>
+                                        </a>
+                                    </li>
+                            
+
+                                    <li class="page-item">
+                                    {% if past_pages.has_next %}
+                                        <a class="page-link" href="?page={{ past_pages.next_page_number }}" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    {% else %}
+                                        <a class="page-link disabled" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    
+                                    {% endif %}
+                                    </li>
+                                  </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+
+{% if variables.client_type == 1 or variables.client_type == 2 or variables.client_type == "1" or variables.client_type == "2" %}
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/58bf4fc25b8fe5150eed5148/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+{% endif %}
+{% endblock %}

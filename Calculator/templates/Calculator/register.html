@@ -5,9 +5,11 @@
     <div class="row">
         <div class="well hero row-fluid summary-box container">
         <!--<div class="col-sm-12 col-md-6">-->
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                <h3 class="panel-title" > <h4>Register for Fyinance</h4> </h3>
+                </div>
                 <div class="panel-body">
-                    <h3>Register for an Account</h3>
                     {% if error_message %}
                         <p><strong>{{ error_message }}</strong></p>
                     {% endif %}
@@ -15,6 +17,20 @@
                         {% csrf_token %}                        
                         
                         {% for field in form %}
+                            {% if forloop.counter0 == 0 %}
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <span class="text-danger small">{{ field.errors }}</span>
+                                </div>
+                                <label class="control-label col-sm-2" for="email">Email Address:</label>
+                                <div class="col-sm-10">
+                                    <input id="email" maxlength="100" name="username" type="email" required>
+                                </div>
+                            </div>
+
+
+
+                            {% else %}
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <span class="text-danger small">{{ field.errors }}</span>
@@ -22,6 +38,8 @@
                                 <label class="control-label col-sm-2" for="song_title">{{ field.label_tag }}</label>
                                 <div class="col-sm-10">{{ field }}</div>
                             </div>
+
+                            {% endif %}
                         {% endfor %}
 
 

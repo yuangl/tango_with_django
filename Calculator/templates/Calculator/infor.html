@@ -1,0 +1,623 @@
+{% extends 'Calculator/base.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="well hero row-fluid summary-box container">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><h4>Account Information Update: </h4></h3>
+
+                    </div>
+                    <div class="panel-body">
+                      <img src="http://premiumretailsolutions.com/wp-content/uploads/2014/12/Account_Management_2500x600.jpg" class="img-thumbnail" >
+                    </div>
+                </div>
+                
+
+
+            <form class="form-horizontal" role="form" action="{% url 'Calculator:user_infor' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+            <div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Natural Informaton
+                      </h3>
+                    </div>
+                <div class="panel-body">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="last_name">Last Name: </label>
+                            <div class="col-sm-10">
+                                <input id="last_name" maxlength="100" name="last_name" type="text" class="form-control" value="{{variables.last_name}}" placeholder="Last Name" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="first_name">First Name:</label>
+                            <div class="col-sm-10">
+                                <input id="first_name" maxlength="100" name="first_name" type="text" class="form-control" value="{{variables.first_name}}"  placeholder="First Name" required>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="zip_code">Zip Code:</label>
+                            <div class="col-sm-10">
+                                <input id="zip_code" min = "10000" max="99999" name="zip_code" type="number" class="form-control" value={{variables.zip_code}} placeholder="Zip Code" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="phone_number">Telephone:</label>
+                            <div class="col-sm-10">
+                                <input id="phone_number" min="1000000000" max="9999999999" name="phone_number" type="number" class="form-control"  value="{{variables.phone_number}}" placeholder="Telephone" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="age">Date of Birth:</label>
+                            <div class="col-sm-10" id="age">
+                                <input id="age" name="age" type="date" value="{{variables.age}}" class="form-control" placeholder="Date 0f Birth">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="sex" >Gender:</label>
+                            <div class="col-sm-10" id="sex" >
+                                <select class="form-control" name="sex">
+                                  <option value="Male" {% if variables.sex == "Male" %} selected="selected" {% endif %} > Male </option>
+                                  <option value="Female" {% if variables.sex == "Female" %} selected="selected" {% endif %}> Female </option>
+                                  <option value="Choose to not Specify" {% if variables.sex == "Choose to not Specify" %} selected="selected" {% endif %}> Choose to not Specify </option>
+                                </select>
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="martial_status">Martial Status:</label>
+                            <div class="col-sm-10" id="martial_status" >
+                                <select class="form-control" name="martial_status">
+                                  <option value="Single" {% if variables.martial_status == "Single" %} selected="selected" {% endif %}> Single </option>
+                                  <option value="Divorced" {% if variables.martial_status == "Divorced" %} selected="selected" {% endif %}> Divorced </option>
+                                  <option value="Partnered" {% if variables.martial_status == "Partnered" %} selected="selected" {% endif %}> Partnered </option>
+                                  <option value="Widowed" {% if variables.martial_status == "Widowed" %} selected="selected" {% endif %}> Widowed </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="education">Education:</label>
+                            <div class="col-sm-10" id="education" >
+                                <select class="form-control" name="education">
+                                  <option value="High School or GED Equivalent" {% if variables.education == "High School or GED Equivalent" %} selected="selected" {% endif %}> High School or GED Equivalent</option>
+                                  <option value="Some College" {% if variables.education == "Some College" %} selected="selected" {% endif %}>  Some College </option>
+                                  <option value="Bachelors" {% if variables.education == "Bachelors" %} selected="selected" {% endif %}> Bachelors </option>
+                                  <option value="Masters" {% if variables.education == "Masters" %} selected="selected" {% endif %}> Masters </option>
+                                  <option value="PHD" {% if variables.education == "PHD" %} selected="selected" {% endif %}> PHD </option>
+                                  <option value="Graduate School, no Degree" {% if variables.education == "Graduate School, no Degree" %} selected="selected" {% endif %}> Graduate School, no Degree </option>
+                                  <option value="Associate Degree" {% if variables.education == "Associate Degree" %} selected="selected" {% endif %}> Associate Degree </option>
+                                  <option value="Professioanl Degree or Trade Certificate" {% if variables.education == "Professioanl Degree or Trade Certificate" %} selected="selected" {% endif %}> Professioanl Degree or Trade Certificate </option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="financial_knowledge">Financial Knowledge:</label>
+                            <div class="col-sm-10" id="financial_knowledge">
+
+                                <select class="form-control" name="financial_knowledge">
+                                  <option value="Few" {% if variables.financial_knowledge == "Few" %} selected="selected" {% endif %}> Few </option>
+                                  <option value="Some" {% if variables.financial_knowledge == "Some" %} selected="selected" {% endif %}>  Some </option>
+                                  <option value="Okey" {% if variables.financial_knowledge == "Okey" %} selected="selected" {% endif %}> Okey </option>
+                                  <option value="Expert" {% if variables.financial_knowledge == "Expert" %} selected="selected" {% endif %}> Expert </option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Do you have ____?</label>
+                            <div class="col-sm-8" id="boolean">
+
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_bank_account" id="boolean_bank_account" value="True" {% if variables.boolean_bank_account %} checked {% endif %}> Bank Account
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_car" id="boolean_car" value="True" {% if variables.boolean_car %} checked {% endif %}> Car
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_home" id="boolean_home" value="True" {% if variables.boolean_home %} checked {% endif %}> House
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_children" id="boolean_children" value="True" {% if variables.boolean_children %} checked {% endif %}> Children
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_credit_cards" id="boolean_credit_cards" value="True" {% if variables.boolean_credit_cards %} checked {% endif %}> Credit Cards
+                                </label>                               
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_college_loan" id="boolean_college_loan" value="True" {% if variables.boolean_college_loan %} checked {% endif %}> College loan
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_medical_debt" id="boolean_medical_debt" value="True" {% if variables.boolean_medical_debt %} checked {% endif %}> Medical Debt
+                                </label>                               
+                            </div>
+                        </div>
+            </div>
+            </div>
+
+       <div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Job Informaton
+                      </h3>
+                    </div>
+                <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="have_job">Are you currently employed?</label>
+                            <div class="col-sm-7" id="have_job" >
+                                <select class="form-control" name="have_job">
+                                  <option value="Yes" {% if variables.have_job == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.have_job == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+                       <div class="form-group">
+                            <label class="control-label col-sm-5" for="work_length">How long have you worked there?</label>
+                            <div class="col-sm-7" id="work_length" >
+                                <select class="form-control" name="work_length">
+                                  <option value="0-6 months" {% if variables.work_length == "0-6 months" %} selected="selected" {% endif %}> 0-6 months </option>
+                                  <option value="1-2 years" {% if variables.work_length == "1-2 years" %} selected="selected" {% endif %}> 1-2 years </option>
+                                  <option value="3+ more years" {% if variables.work_length == "3+ more years" %} selected="selected" {% endif %}> 3+ more years </option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="job_title">What is your job position?</label>
+                            <div class="col-sm-7">
+                                <input id="job_title" maxlength="100" name="job_title" type="text" class="form-control" value="{{variables.job_title}}" placeholder="Job Title">
+                            </div>
+                        </div>
+
+            </div>
+            </div>
+
+          <div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Living Informaton
+                      </h3>
+                    </div>
+                <div class="panel-body">
+                    
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="mortgage_satisfaction">Do you currently enjoy where you live?</label>
+                            <div class="col-sm-7" id="mortgage_satisfaction" >
+                                <select class="form-control" name="mortgage_satisfaction">
+                                  <option value="Yes" {% if variables.mortgage_satisfaction == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.mortgage_satisfaction == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="mortgage_provider">Who is your current Mortgage provider?</label>
+                            <div class="col-sm-7" id="mortgage_provider" >
+                                <select class="form-control" name="mortgage_provider">
+                                   <option value="Wells Fargo" {% if variables.mortgage_provider == "Wells Fargo" %} selected="selected" {% endif %}> Wells Fargo </option>
+                                   <option value="Chase" {% if variables.mortgage_provider == "Chase" %} selected="selected" {% endif %}> Chase </option>
+                                   <option value="Quicken" {% if variables.mortgage_provider == "Quicken" %} selected="selected" {% endif %}> Quicken </option>
+                                   <option value="U.S.BankCorp" {% if variables.mortgage_provider == "U.S.BankCorp" %} selected="selected" {% endif %}> U.S.BankCorp </option>
+                                   <option value="Bank of American" {% if variables.mortgage_provider == "Bank of American" %} selected="selected" {% endif %}> Bank of American </option>
+                                   <option value="Penny Mac" {% if variables.mortgage_provider == "Penny Mac" %} selected="selected" {% endif %}> Penny Mac </option>
+                                   <option value="Mortgage Investment" {% if variables.mortgage_provider == "Mortgage Investment" %} selected="selected" {% endif %}> Mortgage Investment </option>
+                                   <option value="PHH Corp" {% if variables.mortgage_provider == "PHH Corp" %} selected="selected" {% endif %}> PHH Corp </option>
+                                   <option value="Citi Group" {% if variables.mortgage_provider == "Citi Group" %} selected="selected" {% endif %}> Citi Group </option>
+                                   <option value="Other" {% if variables.mortgage_provider == "Other" %} selected="selected" {% endif %}> Other </option>
+                                   
+                                </select>
+                            </div>
+                        </div>
+
+
+            </div>
+            </div>
+
+       <div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Automobile Informaton
+                      </h3>
+                    </div>
+                <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="have_car_loan">Do you currently have an automobile loan? </label>
+                            <div class="col-sm-7" id="have_car_loan" >
+                                <select class="form-control" name="have_car_loan">
+                                  <option value="Yes" {% if variables.have_car_loan == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.have_car_loan == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="car_loan_provider">Who is your current automobile loan provider?</label>
+                            <div class="col-sm-7" id="car_loan_provider" >
+                                <select class="form-control" name="car_loan_provider">
+                                   <option value="Ally Bank" {% if variables.car_loan_provider == "Ally Bank" %} selected="selected" {% endif %}> Ally Bank </option>
+                                   <option value="Wells Fargo" {% if variables.car_loan_provider == "Wells Fargo" %} selected="selected" {% endif %}> Wells Fargo </option>
+                                   <option value="Chase" {% if variables.car_loan_provider == "Chase" %} selected="selected" {% endif %}> Chase </option>
+                                   <option value="Capital One" {% if variables.car_loan_provider == "Capital One" %} selected="selected" {% endif %}> Capital One </option>
+                                   <option value="Toyota" {% if variables.car_loan_provider == "Toyota" %} selected="selected" {% endif %}> Toyota </option>
+                                   <option value="Ford" {% if variables.car_loan_provider == "Ford" %} selected="selected" {% endif %}> Ford </option>
+                                   <option value="Nissan" {% if variables.car_loan_provider == "Nissan" %} selected="selected" {% endif %}> Nissan </option>
+                                   <option value="Honda" {% if variables.car_loan_provider == "Honda" %} selected="selected" {% endif %}> Honda </option>
+                                   <option value="Chrysler Capital" {% if variables.car_loan_provider == "Chrysler Capital" %} selected="selected" {% endif %}> Chrysler Capital </option>
+                                   <option value="Carmax" {% if variables.car_loan_provider == "Carmax" %} selected="selected" {% endif %}> Carmax </option>
+                                   <option value="Kia Motor Finco" {% if variables.car_loan_provider == "Kia Motor Finco" %} selected="selected" {% endif %}> Kia Motor Finco </option>
+                                   <option value="Other" {% if variables.car_loan_provider == "Other" %} selected="selected" {% endif %}> Other </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="car_satisfaction">Do you like your current vehicle?</label>
+                            <div class="col-sm-7" id="car_satisfaction" >
+                                <select class="form-control" name="car_satisfaction">
+                                  <option value="Yes" {% if variables.car_satisfaction == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.car_satisfaction == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="car_insurance_satisfaction">Do you like your current automobile insurance?</label>
+                            <div class="col-sm-7" id="car_insurance_satisfaction" >
+                                <select class="form-control" name="car_insurance_satisfaction">
+                                  <option value="Yes" {% if variables.car_insurance_satisfaction == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.car_insurance_satisfaction == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="car_insurance_provider">Who is your current automobile insurance provider?</label>
+                            <div class="col-sm-7" id="car_insurance_provider" >
+                                <select class="form-control" name="car_insurance_provider">
+                                   <option value="State Farm" {% if variables.car_insurance_provider == "State Farm" %} selected="selected" {% endif %}> State Farm </option>
+                                   <option value="Gieco" {% if variables.car_insurance_provider == "Gieco" %} selected="selected" {% endif %}> Gieco </option>
+                                   <option value="AllState" {% if variables.car_insurance_provider == "AllState" %} selected="selected" {% endif %}> AllState </option>
+                                   <option value="USAA" {% if variables.car_insurance_provider == "USAA" %} selected="selected" {% endif %}> USAA </option>
+                                   <option value="Farmers Insurance" {% if variables.car_insurance_provider == "Farmers Insurance" %} selected="selected" {% endif %}> Farmers Insurance </option>
+                                   <option value="Liberty Mutual" {% if variables.car_insurance_provider == "Liberty Mutual" %} selected="selected" {% endif %}> Liberty Mutual </option>
+                                   <option value="Nation Wide" {% if variables.car_insurance_provider == "Nation Wide" %} selected="selected" {% endif %}> Nation Wide </option>
+                                   <option value="American Family Insurance" {% if variables.car_insurance_provider == "American Family Insurance" %} selected="selected" {% endif %}> American Family Insurance </option>
+                                   <option value="Other" {% if variables.car_insurance_provider == "Other" %} selected="selected" {% endif %}> Other </option>
+                                </select>
+                            </div>
+                        </div>
+
+
+        </div>
+            </div>
+
+       <div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Phone Informaton
+                      </h3>
+                    </div>
+                <div class="panel-body">
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="phone_length">How long have you been with this mobile provider?</label>
+                            <div class="col-sm-7" id="phone_length" >
+                                <select class="form-control" name="phone_length">
+                                  <option value="0-6 months" {% if variables.phone_length == "0-6 months" %} selected="selected" {% endif %}> 0-6 months </option>
+                                  <option value="1-2 years" {% if variables.phone_length == "1-2 years" %} selected="selected" {% endif %}> 1-2 years </option>
+                                  <option value="3+ more years" {% if variables.phone_length == "3+ more years" %} selected="selected" {% endif %}> 3+ more years </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="phone_satisfaction">Do you like your current mobile phone provider?</label>
+                            <div class="col-sm-7" id="phone_satisfaction" >
+                                <select class="form-control" name="phone_satisfaction">
+                                  <option value="Yes" {% if variables.phone_satisfaction == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.phone_satisfaction == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="phone_provider">Who is your current mobile phone provider?</label>
+                            <div class="col-sm-7" id="phone_provider" >
+                                <select class="form-control" name="phone_provider">
+                                   <option value="Verizon" {% if variables.phone_provider == "Verizon" %} selected="selected" {% endif %}> Verizon </option>
+                                   <option value="At&t wireless" {% if variables.phone_provider == "At&t wireless" %} selected="selected" {% endif %}> At&t wireless </option>
+                                   <option value="T-mobile" {% if variables.phone_provider == "T-mobile" %} selected="selected" {% endif %}> T-mobile </option>
+                                   <option value="Sprint" {% if variables.phone_provider == "Sprint" %} selected="selected" {% endif %}> Sprint </option>
+                                   <option value="U.S. Cellular" {% if variables.phone_provider == "U.S. Cellular" %} selected="selected" {% endif %}> U.S. Cellular </option>
+                                   <option value="Other" {% if variables.phone_provider == "Other" %} selected="selected" {% endif %}> Other </option>
+                                </select>
+                            </div>
+                        </div>
+
+        </div>
+            </div>
+
+       <div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Cable/Internet Informaton
+                      </h3>
+                    </div>
+                <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="cable_satisfaction">Do you like your current Cable/Internet provider?</label>
+                            <div class="col-sm-7" id="cable_satisfaction" >
+                                <select class="form-control" name="cable_satisfaction">
+                                  <option value="Yes" {% if variables.cable_satisfaction == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.cable_satisfaction == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="cable_provider">Who is your current Cable/Internet provider?</label>
+                            <div class="col-sm-7" id="cable_provider" >
+                                <select class="form-control" name="cable_provider">
+                                   <option value="Time Warner Cable-Spectrum" {% if variables.cable_provider == "Time Warner Cable-Spectrum" %} selected="selected" {% endif %}> Time Warner Cable-Spectrum </option>
+                                   <option value="At&t-U verse" {% if variables.cable_provider == "At&t-U verse" %} selected="selected" {% endif %}> At&t-U verse </option>
+                                   <option value="Century Link-Qwest" {% if variables.cable_provider == "Century Link-Qwest" %} selected="selected" {% endif %}> Century Link-Qwest </option>
+                                   <option value="Charter" {% if variables.cable_provider == "Charter" %} selected="selected" {% endif %}> Charter </option>
+                                   <option value="Verizon-Fios" {% if variables.cable_provider == "Verizon-Fios" %} selected="selected" {% endif %}> Verizon-Fios </option>
+                                   <option value="Comcast" {% if variables.cable_provider == "Comcast" %} selected="selected" {% endif %}> Comcast </option>
+                                   <option value="Cox" {% if variables.cable_provider == "Cox" %} selected="selected" {% endif %}> Cox </option>  
+                                   <option value="Optimum-Cable Vision" {% if variables.cable_provider == "Optimum-Cable Vision" %} selected="selected" {% endif %}> Optimum-Cable Vision </option>
+                                   <option value="Frontier" {% if variables.cable_provider == "Frontier" %} selected="selected" {% endif %}> Frontier </option>
+                                   <option value="Other" {% if variables.cable_provider == "Other" %} selected="selected" {% endif %}> Other </option>
+                                </select>
+                            </div>
+                        </div>
+
+        </div>
+            </div>
+
+   <div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Subscription Informaton
+                      </h3>
+                    </div>
+                <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="gym_provider">Are you subscribed to any of the following gym membership? </label>
+                            <div class="col-sm-7" id="gym_provider" >
+                                <select class="form-control" name="gym_provider">
+                                   <option value="La Fitness" {% if variables.gym_provider == "La Fitness" %} selected="selected" {% endif %}> La Fitness </option>
+                                   <option value="24 Hour Fitness" {% if variables.gym_provider == "24 Hour Fitness" %} selected="selected" {% endif %}> 24 Hour Fitness </option>
+                                   <option value="Life Time Fitness" {% if variables.gym_provider == "Life Time Fitness" %} selected="selected" {% endif %}> Life Time Fitness </option>
+                                   <option value="Equinox" {% if variables.gym_provider == "Equinox" %} selected="selected" {% endif %}> Equinox </option>
+                                   <option value="Club Corp" {% if variables.gym_provider == "Club Corp" %} selected="selected" {% endif %}> Club Corp </option>
+                                   <option value="Crunch" {% if variables.gym_provider == "Crunch" %} selected="selected" {% endif %}> Crunch </option>
+                                   <option value="UFC Gym" {% if variables.gym_provider == "UFC Gym" %} selected="selected" {% endif %}> UFC Gym </option>  
+                                   <option value="Planet Fitness" {% if variables.gym_provider == "Planet Fitness" %} selected="selected" {% endif %}> Planet Fitness </option>
+                                   <option value="Other" {% if variables.gym_provider == "Other" %} selected="selected" {% endif %}> Other </option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5">Are you subscribed to any of the following product?</label>
+                            <div class="col-sm-7" id="boolean">
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_netflix" id="boolean_netflix" value="True" {% if variables.boolean_netflix %} checked {% endif %}> NetFlix
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_youtube_red" id="boolean_youtube_red" value="True" {% if variables.boolean_youtube_red %} checked {% endif %}> Youtube Red
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_xbox_live" id="boolean_xbox_live" value="True" {% if variables.boolean_xbox_live %} checked {% endif %}> Xbox Live
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_playstation_live" id="boolean_playstation_live" value="True" {% if variables.boolean_playstation_live %} checked {% endif %}> PlayStation Live
+                                </label>
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_wow" id="boolean_wow" value="True" {% if variables.boolean_wow %} checked {% endif %}> WOW
+                                </label>                               
+                                <label class="checkbox-inline">
+                                  <input type="checkbox" name="boolean_lol" id="boolean_lol" value="True" {% if variables.boolean_lol %} checked {% endif %}> LOL
+                                </label>                          
+                            </div>
+                        </div>
+
+
+
+
+        </div>
+            </div>
+
+   <div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Health Insurance Informaton
+                      </h3>
+                    </div>
+                <div class="panel-body">
+
+
+
+
+                         <div class="form-group">
+                            <label class="control-label col-sm-5" for="health_insurance_satisfaction">Do you like your current Health Insurance provider?</label>
+                            <div class="col-sm-7" id="health_insurance_satisfaction" >
+                                <select class="form-control" name="health_insurance_satisfaction">
+                                  <option value="Yes" {% if variables.health_insurance_satisfaction == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.health_insurance_satisfaction == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="health_insurance_provider">Who is your current Health Insurance provider?</label>
+                            <div class="col-sm-7" id="health_insurance_provider" >
+                                <select class="form-control" name="health_insurance_provider">
+                                   <option value="Aflac" {% if variables.health_insurance_provider == "Aflac" %} selected="selected" {% endif %}> Aflac </option>
+                                   <option value="Cigna Corp" {% if variables.health_insurance_provider == "Cigna Corp" %} selected="selected" {% endif %}> Cigna Corp </option>
+                                   <option value="Health Case Service Corp" {% if variables.health_insurance_provider == "Health Case Service Corp" %} selected="selected" {% endif %}> Health Case Service Corp </option>
+                                   <option value="Humana" {% if variables.health_insurance_provider == "Humana" %} selected="selected" {% endif %}> Humana </option>
+                                   <option value="Aetna" {% if variables.health_insurance_provider == "Aetna" %} selected="selected" {% endif %}> Aetna </option>
+                                   <option value="Anthena" {% if variables.health_insurance_provider == "Anthena" %} selected="selected" {% endif %}> Anthena </option>
+                                   <option value="Kaiser Foundation" {% if variables.health_insurance_provider == "Kaiser Foundation" %} selected="selected" {% endif %}> Kaiser Foundation </option>  
+                                   <option value="United Health" {% if variables.health_insurance_provider == "United Health" %} selected="selected" {% endif %}> United Health </option>
+                                   <option value="Other" {% if variables.health_insurance_provider == "Other" %} selected="selected" {% endif %}> Other </option>
+                                </select>
+                            </div>
+                        </div>
+
+        </div>
+            </div>
+
+    <div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Dental Insurance Informaton
+                      </h3>
+                    </div>
+                <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="dental_insurance_satisfaction">Do you like your current Dental Insurance provider?</label>
+                            <div class="col-sm-7" id="dental_insurance_satisfaction" >
+                                <select class="form-control" name="dental_insurance_satisfaction">
+                                  <option value="Yes" {% if variables.dental_insurance_satisfaction == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.dental_insurance_satisfaction == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="dental_insurance_provider">Who is your current Health Insurance provider?</label>
+                            <div class="col-sm-7" id="dental_insurance_provider" >
+                                <select class="form-control" name="dental_insurance_provider">
+                                    <option value="Aflac" {% if variables.dental_insurance_provider == "Aflac" %} selected="selected" {% endif %}> Aflac </option>
+                                    <option value="Cigna" {% if variables.dental_insurance_provider == "Cigna" %} selected="selected" {% endif %}> Cigna </option>
+                                    <option value="Careington" {% if variables.dental_insurance_provider == "Careington" %} selected="selected" {% endif %}> Careington </option>
+                                    <option value="Humana" {% if variables.dental_insurance_provider == "Humana" %} selected="selected" {% endif %}> Humana </option>
+                                    <option value="Aetna" {% if variables.dental_insurance_provider == "Aetna" %} selected="selected" {% endif %}> Aetna </option>
+                                    <option value="Delta Dental" {% if variables.dental_insurance_provider == "Delta Dental" %} selected="selected" {% endif %}> Delta Dental </option>
+                                    <option value="Dental Works" {% if variables.dental_insurance_provider == "Dental Works" %} selected="selected" {% endif %}> Dental Works </option>
+                                    <option value="Metlife" {% if variables.dental_insurance_provider == "Metlife" %} selected="selected" {% endif %}> Metlife </option>  
+                                    <option value="Uni Care" {% if variables.dental_insurance_provider == "Uni Care" %} selected="selected" {% endif %}> Uni Care </option>
+                                    <option value="United Healthcare" {% if variables.dental_insurance_provider == "United Healthcare" %} selected="selected" {% endif %}> United Healthcare </option>
+                                    <option value="Other" {% if variables.dental_insurance_provider == "Other" %} selected="selected" {% endif %}> Other </option>
+                                </select>
+                            </div>
+                        </div>
+
+        </div>
+            </div>
+
+              <div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Loan Informaton
+                      </h3>
+                    </div>
+                <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="student_loan_manageable">Are your student loan payments manageable? </label>
+                            <div class="col-sm-7" id="student_loan_manageable" >
+                                <select class="form-control" name="student_loan_manageable">
+                                  <option value="Yes" {% if variables.student_loan_manageable == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.student_loan_manageable == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="car_loan_manageable">Are your automobile loan payments manageable? </label>
+                            <div class="col-sm-7" id="car_loan_manageable" >
+                                <select class="form-control" name="car_loan_manageable">
+                                  <option value="Yes" {% if variables.car_loan_manageable == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.car_loan_manageable == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="mortgage_manageable">Are your mortgage payments manageable? </label>
+                            <div class="col-sm-7" id="mortgage_manageable" >
+                                <select class="form-control" name="mortgage_manageable">
+                                  <option value="Yes" {% if variables.mortgage_manageable == "Yes" %} selected="selected" {% endif %}> Yes </option>
+                                  <option value="No" {% if variables.mortgage_manageable == "No" %} selected="selected" {% endif %}> No </option>
+                                </select>
+                            </div>
+                        </div>
+
+        </div>
+            </div>
+
+      <div class="panel panel-primary">
+                 <div class="panel-heading">
+                      <h3 class="panel-title">Other Expenses Informaton
+                      </h3>
+                    </div>
+                <div class="panel-body">
+                        <div class="form-group">
+                            <label class="control-label col-sm-5" for="change_expense_habit">How aggressive are you willing to change your expense habits? </label>
+                            <div class="col-sm-7" id="change_expense_habit" >
+                                <select class="form-control" name="change_expense_habit">
+                                  <option value="Very Little" {% if variables.change_expense_habit == "Very Little" %} selected="selected" {% endif %}> Very Little </option>
+                                  <option value="Some" {% if variables.change_expense_habit == "Some" %} selected="selected" {% endif %}> Some </option>
+                                  <option value="Very Aggressive" {% if variables.change_expense_habit == "Very Aggressive" %} selected="selected" {% endif %}> Very Aggressive </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-5 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </div>
+
+                       </div></div>
+                    </form>
+
+                    
+                </div>
+            
+            </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+{% if variables.client_type == 1 or variables.client_type == 2 or variables.client_type == "1" or variables.client_type == "2" %} 
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/58bf4fc25b8fe5150eed5148/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+{% endif %}
+{% endblock %}

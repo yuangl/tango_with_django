@@ -7,20 +7,50 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 	 <div class="well hero row-fluid summary-box container">
 		
-		<img src="https://static.wixstatic.com/media/2be861_672bba9a4eed4b3495d646bcf222a33d~mv2.png/v1/fill/w_279,h_43,al_c,usm_0.66_1.00_0.01/2be861_672bba9a4eed4b3495d646bcf222a33d~mv2.png" class="img-thumbnail" alt="Responsive image">
+		<div class="row-fluid col-md-3">
+			
+			<!--
+			{% load static %}
+			<img src="{% static 'Calculator/images/logo.png' %}"
+			 class = "img-thumbnail" alt="logo image">
+			 -->
 
-		<a href="{% url 'Calculator:logout' %}" type="link"> Logout </a>
+			<img src="https://static.wixstatic.com/media/2be861_672bba9a4eed4b3495d646bcf222a33d~mv2.png/v1/fill/w_279,h_43,al_c,usm_0.66_1.00_0.01/2be861_672bba9a4eed4b3495d646bcf222a33d~mv2.png" class="img-thumbnail" alt="Responsive image">
+
+		</div>
+
+		<div class="row-fluid col-md-9">
+		<ul class="nav nav-tabs nav-justified">
+  			<li role="presentation"> <a href="{% url 'Calculator:return_index' %}" type="link"> Home </a> </li>
+  			<li role="presentation"> <a href="{% url 'Calculator:user_infor' %}" type="link"> Account </a> </li>
+  			<li role="presentation"> <a href="{% url 'Calculator:plan' %}" type="link"> Financial Plan </a> </li>
+  			<li role="presentation"> <a href="{% url 'Calculator:webinar_menu' %}" type="link"> Webinars </a> </li>
+  			<li role="presentation"> <a href="{% url 'Calculator:news' %}" type="link"> Economic News </a> </li>
+  			<li role="presentation"> <a href="{% url 'Calculator:logout' %}" type="link"> Logout </a> </li>
+		</ul>
+		</div>
+
 
 	</div>
-
 {% block body %}
 {% endblock %}
 </body>
+
+	<div class="well hero row-fluid summary-box container" >
+		<ul class="navbar navbar-default">
+  			<li role="presentation"> <a href="https://www.fyinance.com/" type="link"> Frontend Home</a> </li>
+  			<li role="presentation"> <a href="https://www.fyinance.com/agreement-terms" type="link"> User Aggreement</a> </li>
+  			<li role="presentation"> <a href="https://www.fyinance.com/privacy-policy" type="link"> Privacy Policy</a> </li>
+  			<li role="presentation"> <a href="https://www.fyinance.com/refund-policy" type="link"> Refund Policy</a> </li>
+  			<li role="presentation"> <a href="https://www.fyinance.com/commenting-policy" type="link"> Commenting Policy</a> </li>
+		</ul>
+	</div>
 
 </html>

@@ -1,0 +1,255 @@
+
+{% extends 'Calculator/base.html' %}
+
+{% load mathfilters  %}
+
+{% block body %}
+
+
+
+<div class="container-fluid">
+        <div class="well hero row-fluid summary-box container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title"><h4>Economic News: </h4></div>
+                </div>
+                <div class="panel-body">
+                    <img src="https://i0.wp.com/itnews.blog.fordham.edu/wp-content/uploads/2017/01/banner-1200x3601-1200x360.jpg" class="img-thumbnail">
+                </div>
+
+                
+            </div>
+
+            <div class="row">
+            	<div class="col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-body" style="min-height: 150px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>National Average Income</h3>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <h3>&#36 {{economic_news.income_value}}</h3>
+                                </div>
+                                <div class="col-md-3">
+                                    {% if economic_news.income_rate >= 0 %}
+                                        <h3 style="color:green" ><span class="glyphicon glyphicon-arrow-up" style="color:green"></span> + &#36 {{economic_news.income_rate}}</h3>
+                                    {% else %}
+                                        <h3 style="color:red"><span class="glyphicon glyphicon-arrow-down" style="color:red"></span>  - &#36 {{economic_news.income_rate | abs}}</h3>
+                                    {% endif %}
+                                </div>
+                             </div>   
+                             <p>{{economic_news.income_description}} </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <a href= "{{economic_news.income_url}}">
+                            <img src="{{economic_news.income_logo}}" class="img-thumbnail" style="width: 500px; height: 150px">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+             <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-body" style="min-height: 150px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>National Average Gas Price</h3>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <h3>&#36 {{economic_news.gas_value}}</h3>
+                                </div>
+                                <div class="col-md-3">
+                                    {% if economic_news.gas_rate >= 0 %}
+                                        <h3 style="color:green" ><span class="glyphicon glyphicon-arrow-up" style="color:green"></span> + &#36 {{economic_news.gas_rate}}</h3>
+                                    {% else %}
+                                        <h3 style="color:red"><span class="glyphicon glyphicon-arrow-down" style="color:red"></span>  - &#36 {{economic_news.gas_rate | abs}}</h3>
+                                    {% endif %}
+                                </div>
+                             </div>   
+                             <p>{{economic_news.gas_description}} </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <a href= "{{economic_news.gas_url}}">
+                            <img src="{{economic_news.gas_logo}}" class="img-thumbnail" style="width: 500px; height: 150px">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+             <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-body" style="min-height: 150px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Credit Card Interest Rate</h3>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <h3> {{economic_news.credit_card_value}}&#37</h3>
+                                </div>
+                                <div class="col-md-3">
+                                    {% if economic_news.credit_card_rate >= 0 %}
+                                        <h3 style="color:green" ><span class="glyphicon glyphicon-arrow-up" style="color:green"></span> + {{economic_news.credit_card_rate}}&#37</h3>
+                                    {% else %}
+                                        <h3 style="color:red">
+                                            <span class="glyphicon glyphicon-arrow-down" style="color:red"></span>  - {{economic_news.credit_card_rate | abs}}&#37</h3>
+                                    {% endif %}
+                                </div>
+                             </div>   
+                             <p>{{economic_news.credit_card_description}} </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <a href= "{{economic_news.credit_card_url}}" >
+                        <img src="{{economic_news.credit_card_logo}}" class="img-thumbnail" style="width: 500px; height: 150px">
+                    </a>
+                </div>
+                </div>
+            </div>
+
+
+             <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-body" style="min-height: 150px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Mortgage Interest Rate</h3>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <h3> {{economic_news.mortgage_value}}&#37</h3>
+                                </div>
+                                <div class="col-md-3">
+                                    {% if economic_news.mortgage_rate >= 0 %}
+                                        <h3 style="color:green" ><span class="glyphicon glyphicon-arrow-up" style="color:green"></span> + {{economic_news.mortgage_rate}}&#37</h3>
+                                    {% else %}
+                                        <h3 style="color:red"><span class="glyphicon glyphicon-arrow-down" style="color:red"></span>  - {{economic_news.mortgage_rate | abs}}&#37</h3>
+                                    {% endif %}
+                                </div>
+                             </div>   
+                             <p>{{economic_news.mortgage_description}} </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <a href= {{economic_news.mortgage_url}}>
+                        <img src="{{economic_news.mortgage_logo}}" class="img-thumbnail" style="width: 500px; height: 150px">
+                    </a>
+                </div>
+                </div>
+            </div>
+
+
+             <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-body" style="min-height: 150px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Average Credit Score</h3>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <h3>{{economic_news.credit_score_value}} pts</h3>
+                                </div>
+                                <div class="col-md-3">
+                                    {% if economic_news.credit_score_rate >= 0 %}
+                                        <h3 style="color:green" ><span class="glyphicon glyphicon-arrow-up" style="color:green"></span> + {{economic_news.credit_score_rate}}&#37</h3>
+                                    {% else %}
+                                        <h3 style="color:red"><span class="glyphicon glyphicon-arrow-down" style="color:red"></span>  - {{economic_news.credit_score_rate | abs}}&#37</h3>
+                                    {% endif %}
+                                </div>
+                             </div>   
+                             <p>{{economic_news.credit_score_description}} </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <a href= {{economic_news.credit_score_url}}>
+                        <img src="{{economic_news.credit_score_logo}}" class="img-thumbnail" style="width: 500px; height: 150px">
+                    </a>
+                </div>
+                </div>
+            </div>
+
+
+             <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-body" style="min-height: 150px">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Mobile Phone Plan</h3>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <h3>&#36 {{economic_news.cell_phone_value}}</h3>
+                                </div>
+                                <div class="col-md-3">
+                                    {% if economic_news.cell_phone_rate >= 0 %}
+                                        <h3 style="color:green" ><span class="glyphicon glyphicon-arrow-up" style="color:green"></span> + {{economic_news.cell_phone_rate}}&#37</h3>
+                                    {% else %}
+                                        <h3 style="color:red"><span class="glyphicon glyphicon-arrow-down" style="color:red"></span>  - {{economic_news.cell_phone_rate | abs}}&#37</h3>
+                                    {% endif %}
+                                </div>
+                             </div>   
+                             <p>{{economic_news.cell_phone_description}} </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <a href= "{{economic_news.cell_phone_url}}">
+                        <img src="{{economic_news.cell_phone_logo}}" class="img-thumbnail" style="width: 500px; height: 150px">
+                    </a>
+                </div>
+                </div>
+            </div>
+
+    </div>
+           
+    
+</div>
+{% if variables.client_type == 1 or variables.client_type == 2 or variables.client_type == "1" or variables.client_type == "2"%}
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/58bf4fc25b8fe5150eed5148/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+{% endif %}
+
+{% endblock %}
